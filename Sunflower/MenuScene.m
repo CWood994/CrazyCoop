@@ -1,14 +1,15 @@
 //
-//  GameScene.m
+//  MenuScene.m
 //  Sunflower
 //
-//  Created by Benjamin Stammen on 10/24/16.
+//  Created by Benjamin Stammen on 10/25/16.
 //  Copyright © 2016 Benjamin Stammen. All rights reserved.
 //
 
+#import "MenuScene.h"
 #import "GameScene.h"
 
-@implementation GameScene {
+@implementation MenuScene{
     NSTimeInterval _lastUpdateTime;
     SKShapeNode *_spinnyNode;
     SKLabelNode *_label;
@@ -21,7 +22,7 @@
     _lastUpdateTime = 0;
     
     // Get label node from scene and store it for use later
-    _label = (SKLabelNode *)[self childNodeWithName:@"//helloLabel"];
+    _label = (SKLabelNode *)[self childNodeWithName:@"//menuLabel"];
     
     _label.alpha = 0.0;
     [_label runAction:[SKAction fadeInWithDuration:2.0]];

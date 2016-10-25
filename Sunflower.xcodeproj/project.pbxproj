@@ -18,6 +18,8 @@
 		B532FC191DBF0F8600E4D098 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B532FC171DBF0F8600E4D098 /* LaunchScreen.storyboard */; };
 		B532FC241DBF0F8600E4D098 /* SunflowerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B532FC231DBF0F8600E4D098 /* SunflowerTests.m */; };
 		B532FC2F1DBF0F8600E4D098 /* SunflowerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B532FC2E1DBF0F8600E4D098 /* SunflowerUITests.m */; };
+		B532FC3F1DBF277300E4D098 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B532FC3E1DBF277300E4D098 /* MenuScene.sks */; };
+		B532FC421DBF279D00E4D098 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B532FC411DBF279D00E4D098 /* MenuScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		B532FC2A1DBF0F8600E4D098 /* SunflowerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunflowerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B532FC2E1DBF0F8600E4D098 /* SunflowerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SunflowerUITests.m; sourceTree = "<group>"; };
 		B532FC301DBF0F8600E4D098 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B532FC3E1DBF277300E4D098 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		B532FC401DBF279D00E4D098 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		B532FC411DBF279D00E4D098 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +126,9 @@
 				B532FC171DBF0F8600E4D098 /* LaunchScreen.storyboard */,
 				B532FC1A1DBF0F8600E4D098 /* Info.plist */,
 				B532FC021DBF0F8500E4D098 /* Supporting Files */,
+				B532FC3E1DBF277300E4D098 /* MenuScene.sks */,
+				B532FC401DBF279D00E4D098 /* MenuScene.h */,
+				B532FC411DBF279D00E4D098 /* MenuScene.m */,
 			);
 			path = Sunflower;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 				TargetAttributes = {
 					B532FBFE1DBF0F8500E4D098 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 6KMG279R88;
 						ProvisioningStyle = Automatic;
 					};
 					B532FC1E1DBF0F8600E4D098 = {
@@ -258,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B532FC141DBF0F8600E4D098 /* Main.storyboard in Resources */,
+				B532FC3F1DBF277300E4D098 /* MenuScene.sks in Resources */,
 				B532FC091DBF0F8500E4D098 /* GameScene.sks in Resources */,
 				B532FC161DBF0F8600E4D098 /* Assets.xcassets in Resources */,
 				B532FC191DBF0F8600E4D098 /* LaunchScreen.storyboard in Resources */,
@@ -287,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B532FC111DBF0F8600E4D098 /* GameViewController.m in Sources */,
+				B532FC421DBF279D00E4D098 /* MenuScene.m in Sources */,
 				B532FC071DBF0F8500E4D098 /* AppDelegate.m in Sources */,
 				B532FC0E1DBF0F8600E4D098 /* GameScene.m in Sources */,
 				B532FC041DBF0F8500E4D098 /* main.m in Sources */,
@@ -438,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6KMG279R88;
 				INFOPLIST_FILE = Sunflower/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -450,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6KMG279R88;
 				INFOPLIST_FILE = Sunflower/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -523,6 +536,7 @@
 				B532FC351DBF0F8600E4D098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B532FC361DBF0F8600E4D098 /* Build configuration list for PBXNativeTarget "SunflowerTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +545,7 @@
 				B532FC381DBF0F8600E4D098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B532FC391DBF0F8600E4D098 /* Build configuration list for PBXNativeTarget "SunflowerUITests" */ = {
 			isa = XCConfigurationList;
@@ -539,6 +554,7 @@
 				B532FC3B1DBF0F8600E4D098 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
