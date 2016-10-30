@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B541476B1DC0200A00053EB0 /* dayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B541476A1DC0200A00053EB0 /* dayTests.swift */; };
 		B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54147751DC0200A00053EB0 /* dayUITests.swift */; };
+		B5491AA61DC5A35F00255E8A /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5491AA51DC5A35F00255E8A /* MenuScene.sks */; };
+		B5491AA81DC5A37900255E8A /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA71DC5A37900255E8A /* MenuScene.swift */; };
 		B56C86B11DC077DC00FEE573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56C86AA1DC077DC00FEE573 /* Assets.xcassets */; };
 		B56C86B91DC0785600FEE573 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86B81DC0785600FEE573 /* LoginViewController.swift */; };
 		B56C86BF1DC0786F00FEE573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56C86BB1DC0786F00FEE573 /* LaunchScreen.storyboard */; };
@@ -25,7 +27,6 @@
 		B56C86E31DC078EE00FEE573 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B56C86DE1DC078EE00FEE573 /* GameScene.sks */; };
 		B56C86E41DC078EE00FEE573 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86DF1DC078EE00FEE573 /* GameScene.swift */; };
 		B56C86E51DC078EE00FEE573 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86E01DC078EE00FEE573 /* GameViewController.swift */; };
-		B56C86E61DC078EE00FEE573 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = B56C86E11DC078EE00FEE573 /* Rain.sks */; };
 		B56C86EB1DC0791B00FEE573 /* UIView+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86EA1DC0791B00FEE573 /* UIView+Autolayout.m */; };
 		B56C86EF1DC0796E00FEE573 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86EC1DC0796E00FEE573 /* AppDelegate.swift */; };
 		B56C86F01DC0796E00FEE573 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B56C86EE1DC0796E00FEE573 /* Info.plist */; };
@@ -69,6 +70,8 @@
 		B54147711DC0200A00053EB0 /* dayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54147751DC0200A00053EB0 /* dayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayUITests.swift; sourceTree = "<group>"; };
 		B54147771DC0200A00053EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5491AA51DC5A35F00255E8A /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = Game/MenuScene.sks; sourceTree = "<group>"; };
+		B5491AA71DC5A37900255E8A /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Game/MenuScene.swift; sourceTree = "<group>"; };
 		B56C86AA1DC077DC00FEE573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56C86B81DC0785600FEE573 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		B56C86BC1DC0786F00FEE573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +96,6 @@
 		B56C86DE1DC078EE00FEE573 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = Game/GameScene.sks; sourceTree = "<group>"; };
 		B56C86DF1DC078EE00FEE573 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Game/GameScene.swift; sourceTree = "<group>"; };
 		B56C86E01DC078EE00FEE573 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = Game/GameViewController.swift; sourceTree = "<group>"; };
-		B56C86E11DC078EE00FEE573 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = Rain.sks; path = Game/Rain.sks; sourceTree = "<group>"; };
 		B56C86E81DC0791B00FEE573 /* SunflowerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SunflowerCommon.h; path = "Support Files/SunflowerCommon.h"; sourceTree = "<group>"; };
 		B56C86E91DC0791B00FEE573 /* UIView+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Autolayout.h"; path = "Support Files/UIView+Autolayout.h"; sourceTree = "<group>"; };
 		B56C86EA1DC0791B00FEE573 /* UIView+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Autolayout.m"; path = "Support Files/UIView+Autolayout.m"; sourceTree = "<group>"; };
@@ -258,7 +260,8 @@
 				B56C86DE1DC078EE00FEE573 /* GameScene.sks */,
 				B56C86DF1DC078EE00FEE573 /* GameScene.swift */,
 				B56C86E01DC078EE00FEE573 /* GameViewController.swift */,
-				B56C86E11DC078EE00FEE573 /* Rain.sks */,
+				B5491AA51DC5A35F00255E8A /* MenuScene.sks */,
+				B5491AA71DC5A37900255E8A /* MenuScene.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -413,10 +416,10 @@
 				B56C87001DC07E7E00FEE573 /* backgroundMusic.mp3 in Resources */,
 				B56C870A1DC07E7E00FEE573 /* test.jpg in Resources */,
 				B56C86B11DC077DC00FEE573 /* Assets.xcassets in Resources */,
-				B56C86E61DC078EE00FEE573 /* Rain.sks in Resources */,
 				B56C86BF1DC0786F00FEE573 /* LaunchScreen.storyboard in Resources */,
 				B56C87021DC07E7E00FEE573 /* CloseButton.png in Resources */,
 				B56C870B1DC07E7E00FEE573 /* UserButton.png in Resources */,
+				B5491AA61DC5A35F00255E8A /* MenuScene.sks in Resources */,
 				B56C86FF1DC07E7E00FEE573 /* BackgroundImage.jpg in Resources */,
 				B56C87051DC07E7E00FEE573 /* Images.xcassets in Resources */,
 				B56C87041DC07E7E00FEE573 /* Default-568h@2x.png in Resources */,
@@ -451,6 +454,7 @@
 				B56C86E41DC078EE00FEE573 /* GameScene.swift in Sources */,
 				B56C86B91DC0785600FEE573 /* LoginViewController.swift in Sources */,
 				B56C86D81DC078CE00FEE573 /* CreditsView.m in Sources */,
+				B5491AA81DC5A37900255E8A /* MenuScene.swift in Sources */,
 				B56C86CC1DC078B600FEE573 /* MenuViewController.m in Sources */,
 				B56C86CE1DC078B600FEE573 /* SettingsViewController.m in Sources */,
 				B56C86EB1DC0791B00FEE573 /* UIView+Autolayout.m in Sources */,
