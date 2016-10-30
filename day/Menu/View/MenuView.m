@@ -9,6 +9,7 @@
 #import "MenuView.h"
 #import "UIView+Autolayout.h"
 #import "SunflowerCommon.h"
+#import "day-Swift.h"
 
 @interface MenuView() {
     UIButton *_levelButton;
@@ -136,7 +137,9 @@
     [_userNameLabel addCenterXConstraint];
     [_userNameLabel addTopConstraint:0];
     
-    [_userNameLabel setText:@"[undefined]"];
+    //[_userNameLabel setText:@"[undefined]"];
+    [_userNameLabel setText:AppState.sharedInstance.displayName];
+    
     [_userNameLabel setTextColor:[UIColor whiteColor]];
     [_userNameLabel setAdjustsFontSizeToFitWidth:YES];
     [_userNameLabel setTextAlignment:NSTextAlignmentCenter];

@@ -220,6 +220,7 @@
 }
 
 -(void) signOutButtonTapped{
+    MeasurementHelper.sendLogoutEvent;
     [_audioPlayer stop];
     
     CATransition* transition = [CATransition animation];

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>651988778879-59a5q4tdfp6r7rkh8j4ajms9h06i1uvn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.651988778879-59a5q4tdfp6r7rkh8j4ajms9h06i1uvn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCV2gyF0mpj7hMg6RKKMtdk64M0vh97Q8Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>651988778879</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.google.firebase.CrappyDay</string>
+	<key>PROJECT_ID</key>
+	<string>crappyday-1e007</string>
+	<key>STORAGE_BUCKET</key>
+	<string>crappyday-1e007.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:651988778879:ios:bd14062f0a7ce27a</string>
+	<key>DATABASE_URL</key>
+	<string>https://crappyday-1e007.firebaseio.com</string>
+</dict>
+</plist>
