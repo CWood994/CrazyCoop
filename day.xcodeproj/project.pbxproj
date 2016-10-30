@@ -11,6 +11,7 @@
 		B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54147751DC0200A00053EB0 /* dayUITests.swift */; };
 		B5491AA61DC5A35F00255E8A /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5491AA51DC5A35F00255E8A /* MenuScene.sks */; };
 		B5491AA81DC5A37900255E8A /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA71DC5A37900255E8A /* MenuScene.swift */; };
+		B5491AAA1DC5C0DA00255E8A /* BirdSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA91DC5C0DA00255E8A /* BirdSprite.swift */; };
 		B56C86B11DC077DC00FEE573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56C86AA1DC077DC00FEE573 /* Assets.xcassets */; };
 		B56C86B91DC0785600FEE573 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86B81DC0785600FEE573 /* LoginViewController.swift */; };
 		B56C86BF1DC0786F00FEE573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56C86BB1DC0786F00FEE573 /* LaunchScreen.storyboard */; };
@@ -72,6 +73,7 @@
 		B54147771DC0200A00053EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5491AA51DC5A35F00255E8A /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = Game/MenuScene.sks; sourceTree = "<group>"; };
 		B5491AA71DC5A37900255E8A /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Game/MenuScene.swift; sourceTree = "<group>"; };
+		B5491AA91DC5C0DA00255E8A /* BirdSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdSprite.swift; sourceTree = "<group>"; };
 		B56C86AA1DC077DC00FEE573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56C86B81DC0785600FEE573 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		B56C86BC1DC0786F00FEE573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				B56C86E01DC078EE00FEE573 /* GameViewController.swift */,
 				B5491AA51DC5A35F00255E8A /* MenuScene.sks */,
 				B5491AA71DC5A37900255E8A /* MenuScene.swift */,
+				B5491AA91DC5C0DA00255E8A /* BirdSprite.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				B56C86DA1DC078CE00FEE573 /* ProfileView.m in Sources */,
 				B56C86CD1DC078B600FEE573 /* ProfileViewController.m in Sources */,
 				B56C86EF1DC0796E00FEE573 /* AppDelegate.swift in Sources */,
+				B5491AAA1DC5C0DA00255E8A /* BirdSprite.swift in Sources */,
 				B56C86CB1DC078B600FEE573 /* CreditsViewController.m in Sources */,
 				B56C86D91DC078CE00FEE573 /* MenuView.m in Sources */,
 				B56C86E51DC078EE00FEE573 /* GameViewController.swift in Sources */,
