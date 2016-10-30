@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d5r-we-qsG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d5r-we-qsG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="QA4-wX-6df">
             <objects>
-                <viewController id="YMX-T0-voC" customClass="MenuViewController" customModule="day" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YMX-T0-voC" customClass="GameViewController" customModule="day" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0sT-Zr-sWc"/>
                         <viewControllerLayoutGuide type="bottom" id="Trw-tN-2TP"/>
@@ -23,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Su-UK-t3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="25" y="738"/>
+            <point key="canvasLocation" x="238" y="44"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="DbJ-PV-a37">
@@ -127,30 +127,11 @@
                         <outlet property="passwordTextField" destination="vx7-RB-jbe" id="SfT-vT-IWe"/>
                         <outlet property="signInButton" destination="9gb-MY-hYg" id="Af7-3k-AO1"/>
                         <outlet property="usernameTextField" destination="snf-8R-fAG" id="3yM-iT-9E4"/>
-                        <segue destination="nT9-DL-pre" kind="show" id="oFa-ya-xMq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVh-IJ-J4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-544.79999999999995" y="43.628185907046479"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Fgn-2t-Ab6">
-            <objects>
-                <viewController id="nT9-DL-pre" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HeD-h4-Zbn"/>
-                        <viewControllerLayoutGuide type="bottom" id="N6H-2m-ZVW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TvV-ZA-jIF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LZc-c3-hpt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="276" y="43.628185907046479"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -170,24 +151,6 @@
             </objects>
             <point key="canvasLocation" x="1727.2" y="123.68815592203899"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="w9c-gL-WLD">
-            <objects>
-                <viewController id="Pgl-xe-s7o" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aag-om-yKc"/>
-                        <viewControllerLayoutGuide type="bottom" id="oer-td-B8y"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NHk-1C-7Ii">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="co9-DL-Upc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1055.2" y="123.68815592203899"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAa-8v-waQ">
             <objects>
@@ -196,7 +159,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OZd-TG-wYA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OZd-TG-wYA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -10,6 +10,7 @@
 #import "MenuView.h"
 #import "SettingsViewController.h"
 #import "ProfileViewController.h"
+#import "day-Swift.h"
 
 @interface MenuViewController ()<SettingsViewControllerDelegate>{
     MenuView *_MenuView;
@@ -160,7 +161,16 @@
 }
 
 - (void) playButtonTapped{
+    GameViewController *gameViewController = [[GameViewController alloc] init];
     
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.5;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionReveal;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    
+    [self.navigationController pushViewController:gameViewController animated:NO];
 }
 
 - (void) buttonPress:(UIButton*)button {

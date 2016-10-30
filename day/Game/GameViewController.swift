@@ -12,6 +12,13 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    var skView: SKView!
+    
+    override func loadView() {
+        skView = SKView(frame: UIScreen.main.bounds)
+        self.view = skView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
