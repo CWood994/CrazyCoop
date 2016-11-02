@@ -6,20 +6,20 @@
 //  Copyright © 2016 Connor Wood. All rights reserved.
 //
 
-#import "CreditsView.h"
+#import "AboutView.h"
 #import "UIView+Autolayout.h"
 #import "SunflowerCommon.h"
 
-@interface CreditsView() {
+@interface AboutView() {
     UITextView *_textView;
 }
 @end
 
-@interface CreditsView(Private)
+@interface AboutView(Private)
 - (void)setupCreditsView;
 @end
 
-@implementation CreditsView
+@implementation AboutView
 
 @synthesize dismissButton = _dismissButton;
 
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation CreditsView(Private)
+@implementation AboutView(Private)
 - (void) setupCreditsView{
     [self setupTextView];
     [self setupDismissButton];
@@ -51,7 +51,7 @@
     [_textView addLeadingConstraint:15];
     [_textView addTopConstraint:15];
     
-    [_textView setText:@"Bird Game\n\nConnor Wood\nBenjamin Stammen\nMicheal Mascolino\n\n OSU CSE 5236\n\n Mobile App Dev\n"];
+    [_textView setText:@"Bird Game\n\n How to play:\n Get egged!"];
     [_textView setBackgroundColor:[UIColor blackColor]];
     [_textView setTextColor:[UIColor whiteColor]];
     [_textView setFont:[UIFont systemFontOfSize:30]];

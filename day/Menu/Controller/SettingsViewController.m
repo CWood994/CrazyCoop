@@ -9,12 +9,16 @@
 #import "SettingsViewController.h"
 #import "SettingsView.h"
 #import "CreditsViewController.h"
+#import "AboutViewController.h"
+#import "EULAViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 
 @interface SettingsViewController (){
     SettingsView *_settingsView;
     CreditsViewController *_creditsViewController;
+    AboutViewController *_aboutViewController;
+    EULAViewController *_eulaViewController;
 }
 @end
 
@@ -40,12 +44,14 @@
     [_settingsView.creditsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [_settingsView.creditsButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpInside];
     [_settingsView.creditsButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpOutside];
-    [_settingsView.tbdButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
-    [_settingsView.tbdButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpInside];
-    [_settingsView.tbdButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpOutside];
-    [_settingsView.gameSettingsButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
-    [_settingsView.gameSettingsButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpInside];
-    [_settingsView.gameSettingsButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpOutside];
+    [_settingsView.aboutButton addTarget:self action:@selector(aboutButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [_settingsView.aboutButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
+    [_settingsView.aboutButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpInside];
+    [_settingsView.aboutButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpOutside];
+    [_settingsView.LicenseButton addTarget:self action:@selector(eulaButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [_settingsView.LicenseButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
+    [_settingsView.LicenseButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpInside];
+    [_settingsView.LicenseButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpOutside];
     [_settingsView.signOutButton addTarget:self action:@selector(buttonPress:) forControlEvents:UIControlEventTouchDown];
     [_settingsView.signOutButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpInside];
     [_settingsView.signOutButton addTarget:self action:@selector(buttonRelease:) forControlEvents:UIControlEventTouchUpOutside];
@@ -156,6 +162,19 @@
     _creditsViewController = [[CreditsViewController alloc]init];
     _creditsViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController: _creditsViewController animated:YES completion: nil];
+}
+
+-(void)aboutButtonTapped{
+    _aboutViewController = [[AboutViewController alloc]init];
+    _aboutViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController: _aboutViewController animated:YES completion: nil];
+}
+
+-(void)eulaButtonTapped{
+    _eulaViewController = [[EULAViewController alloc]init];
+    _eulaViewController.quitOnDecline=true;
+    _eulaViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController: _eulaViewController animated:YES completion: nil];
 }
 
 - (void)darkenBackground{

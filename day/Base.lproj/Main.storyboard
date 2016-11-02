@@ -58,7 +58,7 @@
                                     <action selector="didTapSignUp:" destination="oFl-Xa-vKx" eventType="touchUpInside" id="ggg-Kq-xeR"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-5u-P5k">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-5u-P5k">
                                 <frame key="frameInset" minX="16" minY="374" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="n3b-2p-G7B"/>
@@ -162,6 +162,7 @@
                         <outlet property="signinButton" destination="9gb-MY-hYg" id="VTo-bF-MsC"/>
                         <outlet property="signupButton" destination="nN7-dw-zhx" id="VyF-xl-JeS"/>
                         <outlet property="signupText" destination="12g-4m-tgc" id="2uD-bh-h8q"/>
+                        <outlet property="usernameField" destination="oAR-5u-P5k" id="mAy-Er-gjC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVh-IJ-J4f" userLabel="First Responder" sceneMemberID="firstResponder"/>

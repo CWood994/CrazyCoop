@@ -1,27 +1,28 @@
 //
-//  CreditsView.m
+//  EULAView.m
 //  sunflower
 //
 //  Created by Connor Wood on 10/1/16.
 //  Copyright © 2016 Connor Wood. All rights reserved.
 //
 
-#import "CreditsView.h"
+#import "EULAView.h"
 #import "UIView+Autolayout.h"
 #import "SunflowerCommon.h"
 
-@interface CreditsView() {
+@interface EULAView() {
     UITextView *_textView;
 }
 @end
 
-@interface CreditsView(Private)
+@interface EULAView(Private)
 - (void)setupCreditsView;
 @end
 
-@implementation CreditsView
+@implementation EULAView
 
 @synthesize dismissButton = _dismissButton;
+@synthesize acceptButton = _acceptButton;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -34,10 +35,11 @@
 
 @end
 
-@implementation CreditsView(Private)
+@implementation EULAView(Private)
 - (void) setupCreditsView{
     [self setupTextView];
     [self setupDismissButton];
+    [self setupAcceptButton];
     [self setBackgroundColor: [UIColor blackColor]];
 }
 
@@ -51,7 +53,7 @@
     [_textView addLeadingConstraint:15];
     [_textView addTopConstraint:15];
     
-    [_textView setText:@"Bird Game\n\nConnor Wood\nBenjamin Stammen\nMicheal Mascolino\n\n OSU CSE 5236\n\n Mobile App Dev\n"];
+    [_textView setText:@"EULA:\n You agreed to let us use everything and do whatever we want.\n"];
     [_textView setBackgroundColor:[UIColor blackColor]];
     [_textView setTextColor:[UIColor whiteColor]];
     [_textView setFont:[UIFont systemFontOfSize:30]];
@@ -67,12 +69,29 @@
     [_dismissButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:_dismissButton];
     
-    [_dismissButton addLeadingConstraint:0];
-    [_dismissButton addBottomConstraint:0];
-    [_dismissButton addTopConstraint:0];
-    [_dismissButton addTrailingConstraint:0];
+    [_dismissButton addWidthConstraint:100];
+    [_dismissButton addBottomConstraint:10];
+    [_dismissButton addHeightConstraint:50];
+    [_dismissButton addLeadingConstraint:10];
     
-    [_dismissButton setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0]];
+    [_dismissButton setBackgroundColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:1]];
+    [_dismissButton setTitle:@"Decline" forState:UIControlStateNormal];
+}
+
+- (void) setupAcceptButton{
+    _acceptButton = [[UIButton alloc]initWithFrame:CGRectZero];
+    [_acceptButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:_acceptButton];
+    
+    [_acceptButton addWidthConstraint:100];
+    [_acceptButton addBottomConstraint:10];
+    [_acceptButton addHeightConstraint:50];
+    [_acceptButton addTrailingConstraint:10];
+    
+    [_acceptButton setBackgroundColor:[UIColor colorWithRed:0 green:1 blue:0 alpha:1]];
+    [_acceptButton setTitle:@"Accept" forState:UIControlStateNormal];
+    [_acceptButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
 }
 
 @end

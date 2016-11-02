@@ -64,6 +64,6 @@ class FirebaseHelper: NSObject {
         ref.child("users").child(userID!).child("coins").setValue(coins)
         ref.child("users").child(userID!).child("streak").setValue(streak)
         ref.child("users").child(userID!).child("highscore").setValue(highscore)
-        ref.child("users").child(userID!).child("highscore").setValue(gamesPlayed)
+        ref.child("users").child(userID!).child("gamesPlayed").setValue(gamesPlayed)
     }
 }

@@ -27,8 +27,8 @@
 @synthesize background = _background;
 @synthesize creditsButton = _creditsButton;
 @synthesize signOutButton = _signOutButton;
-@synthesize gameSettingsButton = _gameSettingsButton;
-@synthesize tbdButton = _tbdButton;
+@synthesize LicenseButton = _LicenseButton;
+@synthesize aboutButton = _aboutButton;
 @synthesize quitButton = _quitButton;
 @synthesize muteButton = _muteButton;
 
@@ -178,41 +178,41 @@
 }
 
 - (void) setupGameSettingsButton{
-    _gameSettingsButton = [[UIButton alloc]initWithFrame:CGRectZero];
-    [_gameSettingsButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_menuBackgroundOutter addSubview:_gameSettingsButton];
+    _LicenseButton = [[UIButton alloc]initWithFrame:CGRectZero];
+    [_LicenseButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_menuBackgroundOutter addSubview:_LicenseButton];
     
-    [_gameSettingsButton addLeadingConstraint:12];
-    [_gameSettingsButton addHeightConstraint:SETTINGS_BUTTON_HEIGHT];
-    [_gameSettingsButton addTopConstraint:SETTINGS_GAME_SETTINGS_TOP];
-    [_gameSettingsButton addTrailingConstraint:12];
+    [_LicenseButton addLeadingConstraint:12];
+    [_LicenseButton addHeightConstraint:SETTINGS_BUTTON_HEIGHT];
+    [_LicenseButton addTopConstraint:SETTINGS_GAME_SETTINGS_TOP];
+    [_LicenseButton addTrailingConstraint:12];
     
-    [_gameSettingsButton setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
-    [_gameSettingsButton.layer setCornerRadius:10];
-    [_gameSettingsButton.layer setBorderColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1].CGColor];
-    [_gameSettingsButton.layer setBorderWidth:2];
-    [_gameSettingsButton setTitle:@"Game Settings" forState:UIControlStateNormal];
-    [_gameSettingsButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _gameSettingsButton.titleLabel.font = [UIFont systemFontOfSize:30];
+    [_LicenseButton setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
+    [_LicenseButton.layer setCornerRadius:10];
+    [_LicenseButton.layer setBorderColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1].CGColor];
+    [_LicenseButton.layer setBorderWidth:2];
+    [_LicenseButton setTitle:@"License" forState:UIControlStateNormal];
+    [_LicenseButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _LicenseButton.titleLabel.font = [UIFont systemFontOfSize:30];
 }
 
 - (void) setupTBDButton{
-    _tbdButton = [[UIButton alloc]initWithFrame:CGRectZero];
-    [_tbdButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_menuBackgroundOutter addSubview:_tbdButton];
+    _aboutButton = [[UIButton alloc]initWithFrame:CGRectZero];
+    [_aboutButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_menuBackgroundOutter addSubview:_aboutButton];
     
-    [_tbdButton addLeadingConstraint:12];
-    [_tbdButton addHeightConstraint:SETTINGS_BUTTON_HEIGHT];
-    [_tbdButton addTopConstraint:SETTINGS_TBD_TOP];
-    [_tbdButton addTrailingConstraint:12];
+    [_aboutButton addLeadingConstraint:12];
+    [_aboutButton addHeightConstraint:SETTINGS_BUTTON_HEIGHT];
+    [_aboutButton addTopConstraint:SETTINGS_TBD_TOP];
+    [_aboutButton addTrailingConstraint:12];
     
-    [_tbdButton setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
-    [_tbdButton.layer setCornerRadius:10];
-    [_tbdButton.layer setBorderColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1].CGColor];
-    [_tbdButton.layer setBorderWidth:2];
-    [_tbdButton setTitle:@"TBD" forState:UIControlStateNormal];
-    [_tbdButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _tbdButton.titleLabel.font = [UIFont systemFontOfSize:30];
+    [_aboutButton setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
+    [_aboutButton.layer setCornerRadius:10];
+    [_aboutButton.layer setBorderColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1].CGColor];
+    [_aboutButton.layer setBorderWidth:2];
+    [_aboutButton setTitle:@"About" forState:UIControlStateNormal];
+    [_aboutButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _aboutButton.titleLabel.font = [UIFont systemFontOfSize:30];
 }
 
 - (void) setupMuteButton{
