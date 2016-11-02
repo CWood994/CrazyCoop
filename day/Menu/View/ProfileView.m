@@ -9,22 +9,21 @@
 #import "ProfileView.h"
 #import "UIView+Autolayout.h"
 #import "SunflowerCommon.h"
+#import "day-Swift.h"
 
 @interface ProfileView() {
     UIView *_menuBackgroundOutter;
     UIView *_menuBackgroundInnner;
     UILabel *_SettingsTitle;
     UILabel *_scoreLabel;
-    UILabel *_totalKilledLabel;
-    UILabel *_maxKilledLabel;
-    UILabel *_timeSurvivedLabel;
-    UILabel *_totalTimeSurvivedLabel;
+    UILabel *_totalPointsLabel;
+    UILabel *_maxStreakLabel;
+    UILabel *_gamesPlayedLabel;
     UIView *temp;
-    int _score;
-    int _totalKilled;
-    int _maxKilled;
-    double _timeSurvived;
-    double _totalTimeSurvived;
+    long _score;
+    long _totalPoints;
+    long _maxStreak;
+    long _gamesPlayed;
 }
 @end
 
@@ -137,75 +136,63 @@
 }
 
 - (void) setupStats{
-    _score = 0;
-    _totalKilled = 0;
-    _maxKilled = 0;
-    _timeSurvived = 0;
-    _totalTimeSurvived = 0;
+    _score = FirebaseHelper.highscore;
+    _totalPoints = FirebaseHelper.coins;
+    _maxStreak = FirebaseHelper.streak;
+    _gamesPlayed = FirebaseHelper.gamesPlayed;
     
     _scoreLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    _totalKilledLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    _maxKilledLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    _timeSurvivedLabel = [[UILabel alloc]initWithFrame:CGRectZero];
-    _totalTimeSurvivedLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    _totalPointsLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    _maxStreakLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    _gamesPlayedLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     
     [_scoreLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [_menuBackgroundInnner addSubview:_scoreLabel];
-    [_totalKilledLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_menuBackgroundInnner addSubview:_totalKilledLabel];
-    [_maxKilledLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_menuBackgroundInnner addSubview:_maxKilledLabel];
-    [_timeSurvivedLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_menuBackgroundInnner addSubview:_timeSurvivedLabel];
-    [_totalTimeSurvivedLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_menuBackgroundInnner addSubview:_totalTimeSurvivedLabel];
+    [_totalPointsLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_menuBackgroundInnner addSubview:_totalPointsLabel];
+    [_maxStreakLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_menuBackgroundInnner addSubview:_maxStreakLabel];
+    [_gamesPlayedLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_menuBackgroundInnner addSubview:_gamesPlayedLabel];
     
     [_scoreLabel addLeadingConstraint:PROFILE_LEFT_LEADING];
     [_scoreLabel addTrailingConstraint:PROFILE_LEFT_TRAILING];
     [_scoreLabel addHeightConstraint:50];
     [_scoreLabel addTopConstraint:5];
-    [_totalKilledLabel addLeadingConstraint:PROFILE_LEFT_LEADING];
-    [_totalKilledLabel addHeightConstraint:50];
-    [_totalKilledLabel addTrailingConstraint:PROFILE_LEFT_TRAILING];
-    [_totalKilledLabel addTopConstraint:55];
-    [_maxKilledLabel addLeadingConstraint:PROFILE_LEFT_LEADING];
-    [_maxKilledLabel addHeightConstraint:50];
-    [_maxKilledLabel addTrailingConstraint:PROFILE_LEFT_TRAILING];
-    [_maxKilledLabel addTopConstraint:110];
-    [_timeSurvivedLabel addLeadingConstraint:PROFILE_RIGHT_LEADING];
-    [_timeSurvivedLabel addHeightConstraint:50];
-    [_timeSurvivedLabel addTrailingConstraint:PROFILE_RIGHT_TRAILING];
-    [_timeSurvivedLabel addTopConstraint:PROFILE_RIGHT_TOP1];
-    [_totalTimeSurvivedLabel addLeadingConstraint:PROFILE_RIGHT_LEADING];
-    [_totalTimeSurvivedLabel addHeightConstraint:50];
-    [_totalTimeSurvivedLabel addTrailingConstraint:PROFILE_RIGHT_TRAILING];
-    [_totalTimeSurvivedLabel addTopConstraint:PROFILE_RIGHT_TOP2];
+    [_totalPointsLabel addLeadingConstraint:PROFILE_LEFT_LEADING];
+    [_totalPointsLabel addHeightConstraint:50];
+    [_totalPointsLabel addTrailingConstraint:PROFILE_LEFT_TRAILING];
+    [_totalPointsLabel addTopConstraint:55];
+    [_maxStreakLabel addLeadingConstraint:PROFILE_RIGHT_LEADING];
+    [_maxStreakLabel addHeightConstraint:50];
+    [_maxStreakLabel addTrailingConstraint:PROFILE_RIGHT_TRAILING];
+    [_maxStreakLabel addTopConstraint:PROFILE_RIGHT_TOP2];
+    [_gamesPlayedLabel addLeadingConstraint:PROFILE_RIGHT_LEADING];
+    [_gamesPlayedLabel addHeightConstraint:50];
+    [_gamesPlayedLabel addTrailingConstraint:PROFILE_RIGHT_TRAILING];
+    [_gamesPlayedLabel addTopConstraint:PROFILE_RIGHT_TOP1];
+
     
-    [_scoreLabel setText:[NSString stringWithFormat:@"HighScore: %i", _score] ];
+    [_scoreLabel setText:[NSString stringWithFormat:@"Highscore: %ld", _score] ];
     [_scoreLabel setTextColor:[UIColor blackColor]];
     [_scoreLabel setAdjustsFontSizeToFitWidth:YES];
     [_scoreLabel setFont:[UIFont systemFontOfSize:20]];
     [_scoreLabel setTextAlignment:PROFILE_LEFT_TEXT_ORIENTATION];
-    [_totalKilledLabel setText:[NSString stringWithFormat:@"Total Killed: %i", _totalKilled] ];
-    [_totalKilledLabel setTextColor:[UIColor blackColor]];
-    [_totalKilledLabel setAdjustsFontSizeToFitWidth:YES];
-    [_totalKilledLabel setFont:[UIFont systemFontOfSize:20]];
-    [_totalKilledLabel setTextAlignment:PROFILE_LEFT_TEXT_ORIENTATION];
-    [_maxKilledLabel setText:[NSString stringWithFormat:@"Max Killed: %i", _maxKilled] ];
-    [_maxKilledLabel setTextColor:[UIColor blackColor]];
-    [_maxKilledLabel setAdjustsFontSizeToFitWidth:YES];
-    [_maxKilledLabel setFont:[UIFont systemFontOfSize:20]];
-    [_maxKilledLabel setTextAlignment:PROFILE_LEFT_TEXT_ORIENTATION];
-    [_timeSurvivedLabel setText:[NSString stringWithFormat:@"Max Survival Time: %f", _timeSurvived] ];
-    [_timeSurvivedLabel setTextColor:[UIColor blackColor]];
-    [_timeSurvivedLabel setAdjustsFontSizeToFitWidth:YES];
-    [_timeSurvivedLabel setFont:[UIFont systemFontOfSize:20]];
-    [_timeSurvivedLabel setTextAlignment:PROFILE_RIGHT_TEXT_ORIENTATION];
-    [_totalTimeSurvivedLabel setText:[NSString stringWithFormat:@"Total Surivial Time: %f", _totalTimeSurvived] ];
-    [_totalTimeSurvivedLabel setTextColor:[UIColor blackColor]];
-    [_totalTimeSurvivedLabel setAdjustsFontSizeToFitWidth:YES];
-    [_totalTimeSurvivedLabel setFont:[UIFont systemFontOfSize:20]];
-    [_totalTimeSurvivedLabel setTextAlignment:PROFILE_RIGHT_TEXT_ORIENTATION];
+    [_totalPointsLabel setText:[NSString stringWithFormat:@"Total Points: %ld", _totalPoints] ];
+    [_totalPointsLabel setTextColor:[UIColor blackColor]];
+    [_totalPointsLabel setAdjustsFontSizeToFitWidth:YES];
+    [_totalPointsLabel setFont:[UIFont systemFontOfSize:20]];
+    [_totalPointsLabel setTextAlignment:PROFILE_LEFT_TEXT_ORIENTATION];
+    [_maxStreakLabel setText:[NSString stringWithFormat:@"Max Streak: %ld", _maxStreak] ];
+    [_maxStreakLabel setTextColor:[UIColor blackColor]];
+    [_maxStreakLabel setAdjustsFontSizeToFitWidth:YES];
+    [_maxStreakLabel setFont:[UIFont systemFontOfSize:20]];
+    [_maxStreakLabel setTextAlignment:PROFILE_RIGHT_TEXT_ORIENTATION];
+    [_gamesPlayedLabel setText:[NSString stringWithFormat:@"Games Played: %ld", _gamesPlayed] ];
+    [_gamesPlayedLabel setTextColor:[UIColor blackColor]];
+    [_gamesPlayedLabel setAdjustsFontSizeToFitWidth:YES];
+    [_gamesPlayedLabel setFont:[UIFont systemFontOfSize:20]];
+    [_gamesPlayedLabel setTextAlignment:PROFILE_RIGHT_TEXT_ORIENTATION];
     
 }
 

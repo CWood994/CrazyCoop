@@ -69,6 +69,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
+  - NVActivityIndicatorView (3.0)
 
 DEPENDENCIES:
   - Firebase/AdMob
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - NVActivityIndicatorView
 
 SPEC CHECKSUMS:
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
@@ -93,7 +95,8 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  NVActivityIndicatorView: 81953b5e65093ba79edf4fe7268e002039ca5268
 
-PODFILE CHECKSUM: 939f3b513bb52e124c054ac98a5557106fe329b3
+PODFILE CHECKSUM: 84649ca21c422fa3e1a72b5d5f19fc1d3cc65a26
 
 COCOAPODS: 1.1.1

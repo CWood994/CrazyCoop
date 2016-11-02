@@ -16,9 +16,9 @@
 		283C4B1D1DC663A100A56B63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B161DC663A100A56B63 /* Constants.swift */; };
 		283C4B1E1DC663A100A56B63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B161DC663A100A56B63 /* Constants.swift */; };
 		283C4B1F1DC663A100A56B63 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B161DC663A100A56B63 /* Constants.swift */; };
-		283C4B231DC663A100A56B63 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* MeasurementHelper.swift */; };
-		283C4B241DC663A100A56B63 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* MeasurementHelper.swift */; };
-		283C4B251DC663A100A56B63 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* MeasurementHelper.swift */; };
+		283C4B231DC663A100A56B63 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* FirebaseHelper.swift */; };
+		283C4B241DC663A100A56B63 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* FirebaseHelper.swift */; };
+		283C4B251DC663A100A56B63 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* FirebaseHelper.swift */; };
 		35380C9A4D64F1FC9A22FE8A /* Pods_day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF57EF509F1304A2E6E64CB /* Pods_day.framework */; };
 		B541476B1DC0200A00053EB0 /* dayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B541476A1DC0200A00053EB0 /* dayTests.swift */; };
 		B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54147751DC0200A00053EB0 /* dayUITests.swift */; };
@@ -80,7 +80,7 @@
 		283C4B111DC6632300A56B63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		283C4B151DC663A100A56B63 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = Login/AppState.swift; sourceTree = "<group>"; };
 		283C4B161DC663A100A56B63 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Login/Constants.swift; sourceTree = "<group>"; };
-		283C4B181DC663A100A56B63 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementHelper.swift; path = Login/MeasurementHelper.swift; sourceTree = "<group>"; };
+		283C4B181DC663A100A56B63 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirebaseHelper.swift; path = Login/FirebaseHelper.swift; sourceTree = "<group>"; };
 		3C83BFA68A880347DD693E4B /* Pods-day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day.release.xcconfig"; path = "Pods/Target Support Files/Pods-day/Pods-day.release.xcconfig"; sourceTree = "<group>"; };
 		9AF57EF509F1304A2E6E64CB /* Pods_day.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_day.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B541474C1DC0200A00053EB0 /* day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = day.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +245,7 @@
 			children = (
 				283C4B151DC663A100A56B63 /* AppState.swift */,
 				283C4B161DC663A100A56B63 /* Constants.swift */,
-				283C4B181DC663A100A56B63 /* MeasurementHelper.swift */,
+				283C4B181DC663A100A56B63 /* FirebaseHelper.swift */,
 				B56C86B81DC0785600FEE573 /* LoginViewController.swift */,
 			);
 			name = Login;
@@ -561,7 +561,7 @@
 				B56C86CE1DC078B600FEE573 /* SettingsViewController.m in Sources */,
 				B56C86EB1DC0791B00FEE573 /* UIView+Autolayout.m in Sources */,
 				B56C86DA1DC078CE00FEE573 /* ProfileView.m in Sources */,
-				283C4B231DC663A100A56B63 /* MeasurementHelper.swift in Sources */,
+				283C4B231DC663A100A56B63 /* FirebaseHelper.swift in Sources */,
 				B56C86CD1DC078B600FEE573 /* ProfileViewController.m in Sources */,
 				B56C86EF1DC0796E00FEE573 /* AppDelegate.swift in Sources */,
 				B5491AAA1DC5C0DA00255E8A /* BirdSprite.swift in Sources */,
@@ -578,7 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B541476B1DC0200A00053EB0 /* dayTests.swift in Sources */,
-				283C4B241DC663A100A56B63 /* MeasurementHelper.swift in Sources */,
+				283C4B241DC663A100A56B63 /* FirebaseHelper.swift in Sources */,
 				283C4B1B1DC663A100A56B63 /* AppState.swift in Sources */,
 				283C4B1E1DC663A100A56B63 /* Constants.swift in Sources */,
 			);
@@ -589,7 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */,
-				283C4B251DC663A100A56B63 /* MeasurementHelper.swift in Sources */,
+				283C4B251DC663A100A56B63 /* FirebaseHelper.swift in Sources */,
 				283C4B1C1DC663A100A56B63 /* AppState.swift in Sources */,
 				283C4B1F1DC663A100A56B63 /* Constants.swift in Sources */,
 			);
@@ -733,7 +733,7 @@
 				INFOPLIST_FILE = day/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msw.day;
+				PRODUCT_BUNDLE_IDENTIFIER = com.osu.crappy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "day/day-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -751,7 +751,7 @@
 				INFOPLIST_FILE = day/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msw.day;
+				PRODUCT_BUNDLE_IDENTIFIER = com.osu.crappy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "day/day-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

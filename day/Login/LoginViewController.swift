@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import NVActivityIndicatorView
+
 
 class LoginViewController: UIViewController {
     
@@ -15,10 +17,27 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var forgotPassButton: UIButton!
+    @IBOutlet weak var signupText: UILabel!
+    @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var activityIndicatorView: NVActivityIndicatorView!
     
     override func viewDidAppear(_ animated: Bool) {
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.isHidden=true
+
+
         if let user = FIRAuth.auth()?.currentUser {
+            activityIndicatorView.isHidden=false
             self.signedIn(user)
+        }else{
+            emailField.isHidden=false
+            passwordField.isHidden=false
+            signinButton.isHidden=false
+            forgotPassButton.isHidden=false
+            signupText.isHidden=false
+            signupButton.isHidden=false
         }
     }
     
@@ -76,12 +95,13 @@ class LoginViewController: UIViewController {
     }
     
     func signedIn(_ user: FIRUser?) {
-        MeasurementHelper.sendLoginEvent()
+        activityIndicatorView.isHidden=false;
+        FirebaseHelper.getData(temp: self) //this is so stupid, why am i doing this lol. hacked together
         
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.signedIn = true
-        let notificationName = Notification.Name(rawValue: Constants.NotificationKeys.SignedIn)
-        NotificationCenter.default.post(name: notificationName, object: nil, userInfo: nil)
+    }
+    
+    func launchMenu(){ //this is called from FireBaseHelper getData
+        activityIndicatorView.isHidden=true
         menuViewController = MenuViewController.init()
         self.navigationController?.pushViewController(menuViewController!, animated: false)
     }

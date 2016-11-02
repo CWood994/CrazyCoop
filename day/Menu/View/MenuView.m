@@ -137,8 +137,7 @@
     [_userNameLabel addCenterXConstraint];
     [_userNameLabel addTopConstraint:0];
     
-    //[_userNameLabel setText:@"[undefined]"];
-    [_userNameLabel setText:AppState.sharedInstance.displayName];
+    [_userNameLabel setText:FirebaseHelper.username];
     
     [_userNameLabel setTextColor:[UIColor whiteColor]];
     [_userNameLabel setAdjustsFontSizeToFitWidth:YES];
@@ -167,7 +166,7 @@
     [_coinAmountLabel addLeadingConstraint:0];
     [_coinAmountLabel addBottomConstraint:0];
     
-    [_coinAmountLabel setText:@"999,999"];
+    [_coinAmountLabel setText: [@(FirebaseHelper.coins) stringValue]];
     [_coinAmountLabel setTextColor:[UIColor whiteColor]];
     [_coinAmountLabel setAdjustsFontSizeToFitWidth:YES];
     [_coinAmountLabel setTextAlignment:NSTextAlignmentRight];
