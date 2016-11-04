@@ -220,6 +220,7 @@
 }
 
 -(void) signOutButtonTapped{
+    [FirebaseHelper sendLogoutEvent];
     [_audioPlayer stop];
     
     CATransition* transition = [CATransition animation];

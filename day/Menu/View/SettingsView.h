@@ -12,8 +12,8 @@
 @property (strong, nonatomic) UIButton *exitButton;
 @property (strong, nonatomic) UIButton *creditsButton;
 @property (strong, nonatomic) UIButton *signOutButton;
-@property (strong, nonatomic) UIButton *gameSettingsButton;
-@property (strong, nonatomic) UIButton *tbdButton;
+@property (strong, nonatomic) UIButton *LicenseButton;
+@property (strong, nonatomic) UIButton *aboutButton;
 @property (strong, nonatomic) UIButton *muteButton;
 @property (strong, nonatomic) UIButton *quitButton;
 @property (strong, nonatomic) UIView *background;

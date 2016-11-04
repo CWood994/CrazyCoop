@@ -23,7 +23,7 @@
 #define SETTINGS_SIGN_OUT_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  170 :  326
 /* Profile View */
 #define PROFILE_RIGHT_TOP1 (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  5 :  165
-#define PROFILE_RIGHT_TOP2 (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  55 :  220
+#define PROFILE_RIGHT_TOP2 (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  55 :  110
 #define PROFILE_RIGHT_TOP3 (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  105 :  5
 #define PROFILE_LEFT_LEADING (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  10 :  10
 #define PROFILE_LEFT_TRAILING (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  250 :  10
