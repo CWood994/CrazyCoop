@@ -20,6 +20,7 @@ class GameScene: SKScene {
     private var score : Int = 0
     private var nextBirdTime : Float = 10.0
     private var spinnyNode : SKShapeNode?
+    var selectedNode = SKSpriteNode()
     
     override func sceneDidLoad() {
 
@@ -59,6 +60,46 @@ class GameScene: SKScene {
         self.childNode(withName: "//location_1")?.addChild(birdSprite)
     }
     
+    func degToRad(degree: Double) -> CGFloat {
+        return CGFloat(Double(degree) / 180.0 * M_PI)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let positionInScene = touch?.location(in: self)
+        selectNodeForTouch(touchLocation: positionInScene!)
+    }
+
+    
+    func selectNodeForTouch(touchLocation: CGPoint) {
+        let touchedNode = self.atPoint(touchLocation)
+        if touchedNode is BirdSprite {
+            if !selectedNode.isEqual(touchedNode) {
+                selectedNode.removeAllActions()
+                selectedNode = touchedNode as! SKSpriteNode
+                let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
+                        SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
+                        SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
+                selectedNode.run(SKAction.repeatForever(sequence))
+                
+            }
+        }
+    }
+    
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //for t in touches { self.touchesMoved(toPoint: t.location(in: self)) }
+        let touch = touches.first! as UITouch
+        let positionInScene = touch.location(in: self)
+        let previousPosition = touch.previousLocation(in: self)
+        let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
+        panForTranslation(translation: translation)
+    }
+    
+    func panForTranslation(translation: CGPoint) {
+        let position = selectedNode.position
+        selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
+    }
     
 /*    func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -68,13 +109,7 @@ class GameScene: SKScene {
         }
     }
     
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
+
     
     func touchUp(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
@@ -84,17 +119,9 @@ class GameScene: SKScene {
         }
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
+
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
+
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
