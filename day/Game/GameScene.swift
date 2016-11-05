@@ -99,7 +99,7 @@ class GameScene: SKScene {
         }
     }
     
-    
+    /*
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         //for t in touches { self.touchesMoved(toPoint: t.location(in: self)) }
         let touch = touches.first! as UITouch
@@ -108,10 +108,34 @@ class GameScene: SKScene {
         let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
         panForTranslation(translation: translation)
     }
+ */
     
     func panForTranslation(translation: CGPoint) {
         let position = selectedNode.position
         selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        _ = selectedNode.parent
+        let newParent = getNearestCell(position: self.position)
+        selectedNode.removeFromParent()
+        
+        newParent.addChild(selectedNode)
+        selectedNode.position = (cellList.last?.position)!
+        
+    }
+    func getNearestCell(position: CGPoint) -> SKNode{
+        var closest: SKNode = cellList.first!
+        var minDistance = CGFloat.infinity
+        var distance: CGFloat
+        for node in cellList {
+            distance = CGFloat(hypotf(Float(position.x.subtracting(node.position.x)), Float(position.y.subtracting(node.position.y))))
+            if (distance < minDistance) {
+                closest = node
+                minDistance = distance
+            }
+        }
+        return closest
     }
     
 /*    func touchDown(atPoint pos : CGPoint) {
@@ -136,9 +160,7 @@ class GameScene: SKScene {
     
 
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
+
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
