@@ -199,6 +199,7 @@ class GameScene: SKScene {
             let cell = birdList[0].parent
             // TODO: maybe make it fly away
             birdList[0].removeFromParent()
+            birdList.remove(at: 0)
             cell?.addChild(bird)
         }
         
