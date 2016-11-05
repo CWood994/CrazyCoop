@@ -42,6 +42,7 @@ class BirdSprite : SKSpriteNode {
             let egg = SKSpriteNode(texture: eggTexture, size: eggTexture.size())
             egg.zPosition = 3
             egg.physicsBody = SKPhysicsBody(circleOfRadius: eggTexture.size().width)
+            egg.position = (self.scene?.convert(CGPoint.zero, from: self))!
             self.scene?.addChild(egg)
             
             self.timeUntilNextEgg = self.timeBetweenEggs
