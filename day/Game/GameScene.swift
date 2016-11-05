@@ -147,6 +147,10 @@ class GameScene: SKScene {
             self.addBird();
         }
         
+        for bird in self.birdList {
+            bird.updateBird(deltaTime: deltaTime)
+        }
+        
         self.updateLabels()
     }
     

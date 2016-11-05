@@ -9,13 +9,16 @@
 import SpriteKit
 
 class BirdSprite : SKSpriteNode {
-    
-    var beakTexture : SKTexture?
-    var bodyTexture : SKTexture?
-    var eggTexture : SKTexture?
+
+    var eggTexture : SKTexture
     var timeBetweenEggs: Float = 10.0
+    var timeUntilNextEgg: Float = 10.0
     
     init(beakTexture: SKTexture, bodyTexture: SKTexture, eggTexture: SKTexture, timeBetweenEggs: Float) {
+        
+        // set eggTexture
+        self.eggTexture = eggTexture
+        
         super.init(texture: bodyTexture, color: UIColor.red, size: bodyTexture.size())
         
         // add the beak as a child
@@ -32,4 +35,16 @@ class BirdSprite : SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateBird(deltaTime: Float) {
+        self.timeUntilNextEgg = self.timeUntilNextEgg - deltaTime
+        if (self.timeUntilNextEgg <= 0.0) {
+            // add egg to scene
+            let egg = SKSpriteNode(texture: eggTexture, size: eggTexture.size())
+            egg.zPosition = 3
+            egg.physicsBody = SKPhysicsBody(circleOfRadius: eggTexture.size().width)
+            self.scene?.addChild(egg)
+            
+            self.timeUntilNextEgg = self.timeBetweenEggs
+        }
+    }
 }
