@@ -15,21 +15,29 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
+    private var scoreLabel : SKLabelNode?
+    private var nextBirdLabel : SKLabelNode?
+    private var score : Int = 0
+    private var nextBirdTime : Float = 10.0
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
+        // Initialize score label
+        self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
+        if let label = self.scoreLabel {
+            label.text = "Score: \(self.score)"
         }
         
-        // Create shape node to use during mouse interaction
+        // Initialize bird label
+        self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
+        if let label = self.nextBirdLabel {
+            label.text = "Next Bird Arrives In: \(self.nextBirdTime)"
+        }
+        
+        /*// Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
@@ -40,11 +48,17 @@ class GameScene: SKScene {
             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
-        }
+        }*/
+    }
+    
+    func initializeGame() {
+        // add three birds to random places in the grid.
+        // also add them to a list.
+        let birdSprite = BirdSprite(texture: , color: <#T##UIColor#>, size: <#T##CGSize#>)
     }
     
     
-    func touchDown(atPoint pos : CGPoint) {
+/*    func touchDown(atPoint pos : CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.green
@@ -86,7 +100,7 @@ class GameScene: SKScene {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
+    }*/
     
     
     override func update(_ currentTime: TimeInterval) {

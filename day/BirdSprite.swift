@@ -10,8 +10,13 @@ import SpriteKit
 
 class BirdSprite : SKSpriteNode {
     
-    override init(texture: SKTexture!, color: UIColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
+    var beakTexture : SKTexture?
+    var bodyTexture : SKTexture?
+    var eggTexture : SKTexture?
+    var timeBetweenEggs: Float = 10.0
+    
+    init(beakTexture: SKTexture, bodyTexture: SKTexture, eggTexture: SKTexture, timeBetweenEggs: Float) {
+        super.init(texture: bodyTexture, color: UIColor.red, size: bodyTexture.size())
     }
     
     required init?(coder aDecoder: NSCoder) {
