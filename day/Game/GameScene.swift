@@ -22,42 +22,55 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     var selectedNode = SKSpriteNode()
     
+    // Booleans
+    private var gameInitialized : Bool = false
+    // Collections
+    private var birdList : Array<BirdSprite> = []
+    private var cellList : Array<SKNode> = []
+    
     override func sceneDidLoad() {
 
-        self.lastUpdateTime = 0
-        
-        // Initialize score label
-        self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
-        if let label = self.scoreLabel {
-            label.text = "Score: \(self.score)"
-        }
-        
-        // Initialize bird label
-        self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
-        if let label = self.nextBirdLabel {
-            label.text = "Next Bird Arrives In: \(self.nextBirdTime)"
-        }
-        
-        self.initializeGame()
-        /*// Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
+        if (!self.gameInitialized) {
+            self.lastUpdateTime = 0
             
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }*/
+            // Initialize score label
+            self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
+            
+            
+            // Initialize bird label
+            self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
+            
+            self.updateLabels()
+            self.initializeGame()
+            /*// Create shape node to use during mouse interaction
+             let w = (self.size.width + self.size.height) * 0.05
+             self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+             
+             if let spinnyNode = self.spinnyNode {
+             spinnyNode.lineWidth = 2.5
+             
+             spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
+             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
+             SKAction.fadeOut(withDuration: 0.5),
+             SKAction.removeFromParent()]))
+             }*/
+            self.gameInitialized = true
+        }
     }
     
     func initializeGame() {
-        // add three birds to random places in the grid.
-        // also add them to a list.
-        let birdSprite = ChickenSprite()
-        self.childNode(withName: "//location_1")?.addChild(birdSprite)
+        // add all cells to a list
+        for index in 1...9 {
+            self.cellList.append(self.childNode(withName: "//location_\(index)")!)
+        }
+        
+        // shuffle the cells and then add birds to them
+        self.cellList.shuffle()
+        for index in 0...2 {
+            let birdSprite = ChickenSprite()
+            self.cellList[index].addChild(birdSprite)
+            self.birdList.append(birdSprite)
+        }
     }
     
     func degToRad(degree: Double) -> CGFloat {
@@ -149,5 +162,37 @@ class GameScene: SKScene {
         }
         
         self.lastUpdateTime = currentTime
+        
+        self.updateGame(deltaTime: Float(dt))
     }
+    
+    // called to update timers and actions in game apart from gamekit entities
+    func updateGame(deltaTime: Float) {
+        nextBirdTime = nextBirdTime - deltaTime;
+        if (nextBirdTime <= 0) {
+            nextBirdTime = 10.0
+            self.addBird();
+        }
+        
+        self.updateLabels()
+    }
+    
+    // Adds a new bird to an open position on the grid, dismissing an older bird if necessary
+    func addBird() {
+        
+    }
+    
+    func updateLabels() {
+        
+        if let label = self.scoreLabel {
+            label.text = "Score: \(self.score)"
+        }
+        
+        if let label = self.nextBirdLabel {
+            label.text = "Next Bird Arrives In: "  + String(format: "%.0f", self.nextBirdTime)
+        }
+    }
+    
+    
 }
+
