@@ -37,6 +37,7 @@ class GameScene: SKScene {
             label.text = "Next Bird Arrives In: \(self.nextBirdTime)"
         }
         
+        self.initializeGame()
         /*// Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
@@ -54,7 +55,8 @@ class GameScene: SKScene {
     func initializeGame() {
         // add three birds to random places in the grid.
         // also add them to a list.
-        let birdSprite = BirdSprite(texture: , color: <#T##UIColor#>, size: <#T##CGSize#>)
+        let birdSprite = ChickenSprite()
+        self.childNode(withName: "//location_1")?.addChild(birdSprite)
     }
     
     

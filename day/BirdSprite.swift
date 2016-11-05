@@ -17,6 +17,15 @@ class BirdSprite : SKSpriteNode {
     
     init(beakTexture: SKTexture, bodyTexture: SKTexture, eggTexture: SKTexture, timeBetweenEggs: Float) {
         super.init(texture: bodyTexture, color: UIColor.red, size: bodyTexture.size())
+        
+        // add the beak as a child
+        let beakSprite = SKSpriteNode(texture: beakTexture, size: beakTexture.size())
+        beakSprite.position = CGPoint(x: 0, y: bodyTexture.size().height / 2)
+        beakSprite.zPosition = 2;
+        self.addChild(beakSprite)
+        
+        // make the anchor point at the bottom
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.0)
     }
     
     required init?(coder aDecoder: NSCoder) {
