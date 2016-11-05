@@ -153,6 +153,25 @@ class GameScene: SKScene {
     // Adds a new bird to an open position on the grid, dismissing an older bird if necessary
     func addBird() {
         
+        let bird = ChickenSprite()
+        
+        if (birdList.count < 9) {
+            // just search for the empty grid spot
+            for index in 0...self.cellList.count {
+                if (self.cellList[index].children.count == 0) {
+                    self.cellList[index].addChild(bird)
+                    break
+                }
+            }
+        } else {
+            // replace the oldest bird
+            let cell = birdList[0].parent
+            // TODO: maybe make it fly away
+            birdList[0].removeFromParent()
+            cell?.addChild(bird)
+        }
+        
+        self.birdList.append(bird)
     }
     
     func updateLabels() {
