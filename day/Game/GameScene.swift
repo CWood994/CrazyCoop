@@ -22,30 +22,12 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     var selectedNode: SKSpriteNode?
     
-    // Booleans
-    private var gameInitialized : Bool = false
     // Collections
-    private var birdList : Array<BirdSprite> = []
+    private var birdList : Array<BirdNode> = []
     private var cellList : Array<SKNode> = []
     
     override func sceneDidLoad() {
-
-        if (!self.gameInitialized) {
-            
-            /*// Create shape node to use during mouse interaction
-             let w = (self.size.width + self.size.height) * 0.05
-             self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-             
-             if let spinnyNode = self.spinnyNode {
-             spinnyNode.lineWidth = 2.5
-             
-             spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(M_PI), duration: 1)))
-             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-             SKAction.fadeOut(withDuration: 0.5),
-             SKAction.removeFromParent()]))
-             }*/
-            self.gameInitialized = true
-        }
+        
     }
     
     override func didMove(to view: SKView) {
@@ -71,10 +53,12 @@ class GameScene: SKScene {
         // shuffle the cells and then add birds to them
         self.cellList.shuffle()
         for index in 0...2 {
-            let birdSprite = ChickenSprite()
-            self.cellList[index].addChild(birdSprite)
-            self.birdList.append(birdSprite)
+            let birdNode = ChickenNode()
+            self.cellList[index].addChild(birdNode)
+            self.birdList.append(birdNode)
         }
+        
+        self.physicsWorld.contactDelegate = self
     }
     
     func degToRad(degree: Double) -> CGFloat {
@@ -227,7 +211,7 @@ class GameScene: SKScene {
     // Adds a new bird to an open position on the grid, dismissing an older bird if necessary
     func addBird() {
         
-        let bird = ChickenSprite()
+        let bird = ChickenNode()
         
         if (birdList.count < 9) {
             // just search for the empty grid spot
@@ -261,5 +245,48 @@ class GameScene: SKScene {
     }
     
     
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        // If a chicken and an egg collide...
+        if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
+            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.EggPhysicsLayer) ||
+           (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.EggPhysicsLayer &&
+            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
+            let birdNode: BirdNode?
+            let eggNode:  EggNode?
+            if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
+                birdNode = contact.bodyA.node as! BirdNode?
+                eggNode  = contact.bodyB.node as! EggNode?
+            } else {
+                birdNode = contact.bodyB.node as! BirdNode?
+                eggNode  = contact.bodyA.node as! EggNode?
+            }
+            
+            if (birdNode != eggNode?.sourceBird) {
+                debugPrint("A chicken and egg collided!")
+                eggNode?.removeFromParent()
+                // tell the bird to go away, too
+            }
+            
+            
+        }
+        
+        // If two chickens begin contact...
+        if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
+            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
+            debugPrint("Two chickens collided!")
+        }
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        // If two chickens begin contact...
+        if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
+            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
+            debugPrint("Two chickens stopped colliding!")
+        }
+    }
 }
 
