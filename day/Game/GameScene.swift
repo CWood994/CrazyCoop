@@ -14,37 +14,31 @@ class GameScene: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     
-    private var lastUpdateTime : TimeInterval = 0
+    // Game Entities
+    private var strikesLabel : SKLabelNode?
+    private var streakLabel : SKLabelNode?
     private var scoreLabel : SKLabelNode?
     private var nextBirdLabel : SKLabelNode?
-    private var nextBirdTime : Float = 10.0
-
-    var selectedNode: SKSpriteNode?
     
     // Game Attributes
     private var strikes : Int = 0
     private var currentStreak : Int = 0
     private var maxStreak : Int = 0
     private var score : Int = 0
-    
-
+    private var lastUpdateTime : TimeInterval = 0
+    private var nextBirdTime : Float = 10.0
+    private var selectedNode: SKSpriteNode?
     
     // Collections
     private var birdList : Array<BirdNode> = []
     private var cellList : Array<SKNode> = []
-    
-    override func sceneDidLoad() {
-        
-    }
-    
+
     override func didMove(to view: SKView) {
         self.lastUpdateTime = 0
         
-        // Initialize score label
+        self.strikesLabel = self.childNode(withName: "//strikes_label") as? SKLabelNode
+        self.streakLabel = self.childNode(withName: "//streak_label") as? SKLabelNode
         self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
-        
-        
-        // Initialize bird label
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
         
         self.updateLabels()
@@ -65,9 +59,20 @@ class GameScene: SKScene {
             self.birdList.append(birdNode)
         }
         
+        self.createGoal()
+        
         self.physicsWorld.contactDelegate = self
     }
     
+    func createGoal() {
+        let goalNode = self.childNode(withName: "//goal_sprite")
+        let physicsBody = SKPhysicsBody(edgeLoopFrom: (goalNode?.frame)!)
+        physicsBody.fieldBitMask = GameConstants.PhysicsConstants.GoalPhysicsLayer
+        physicsBody.categoryBitMask = GameConstants.PhysicsConstants.GoalPhysicsLayer
+        physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
+        physicsBody.collisionBitMask = 0
+        goalNode?.physicsBody = physicsBody
+    }
     func degToRad(degree: Double) -> CGFloat {
         return CGFloat(Double(degree) / 180.0 * M_PI)
     }
@@ -103,8 +108,10 @@ class GameScene: SKScene {
  
     
     func panForTranslation(translation: CGPoint) {
-        let position = selectedNode?.position
-        selectedNode?.position = CGPoint(x: (position?.x)! + translation.x, y: (position?.y)! + translation.y)
+        if (selectedNode != nil) {
+            let position = selectedNode?.position
+            selectedNode?.position = CGPoint(x: (position?.x)! + translation.x, y: (position?.y)! + translation.y)
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -149,36 +156,7 @@ class GameScene: SKScene {
         }
         return closest
     }
-    
-/*    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
 
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-
-    
-
-    
-
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }*/
-    
-    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -248,6 +226,11 @@ class GameScene: SKScene {
                 break
             }
         }
+        
+        // If the bird is the currently selected node, set selectedNode to nil
+        if (selectedNode?.parent == birdToRemove.parent) {
+            selectedNode = nil
+        }
         birdToRemove.removeFromParent()
     }
     
@@ -266,6 +249,14 @@ class GameScene: SKScene {
     
     func updateLabels() {
         
+        if let label = self.strikesLabel {
+            label.text = "Strikes: \(self.strikes)"
+        }
+        
+        if let label = self.streakLabel {
+            label.text = "Streak: \(self.currentStreak)"
+        }
+        
         if let label = self.scoreLabel {
             label.text = "Score: \(self.score)"
         }
@@ -274,8 +265,6 @@ class GameScene: SKScene {
             label.text = "Next Bird Arrives In: "  + String(format: "%.0f", self.nextBirdTime)
         }
     }
-    
-    
 }
 
 extension GameScene: SKPhysicsContactDelegate {
@@ -311,6 +300,14 @@ extension GameScene: SKPhysicsContactDelegate {
         if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
             contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
             debugPrint("Two chickens collided!")
+        }
+        
+        // If the goal and an egg collide...
+        if (contact.bodyA.categoryBitMask & contact.bodyB.categoryBitMask ==
+            GameConstants.PhysicsConstants.EggPhysicsLayer & GameConstants.PhysicsConstants.GoalPhysicsLayer) {
+            debugPrint("Scored!!!")
+            
+            
         }
     }
     

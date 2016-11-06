@@ -23,6 +23,7 @@
 		35380C9A4D64F1FC9A22FE8A /* Pods_day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF57EF509F1304A2E6E64CB /* Pods_day.framework */; };
 		B532E9A51DCE422C003B695F /* ChickenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A41DCE422C003B695F /* ChickenNode.swift */; };
 		B532E9A71DCE61EF003B695F /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */; };
+		B534EF9A1DCFC3A200223171 /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B534EF991DCFC3A200223171 /* PauseScene.sks */; };
 		B541476B1DC0200A00053EB0 /* dayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B541476A1DC0200A00053EB0 /* dayTests.swift */; };
 		B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54147751DC0200A00053EB0 /* dayUITests.swift */; };
 		B5482D911DCF965200F0DF32 /* EggNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5482D901DCF965200F0DF32 /* EggNode.swift */; };
@@ -96,6 +97,7 @@
 		9AF57EF509F1304A2E6E64CB /* Pods_day.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_day.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B532E9A41DCE422C003B695F /* ChickenNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChickenNode.swift; path = Game/ChickenNode.swift; sourceTree = "<group>"; };
 		B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		B534EF991DCFC3A200223171 /* PauseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PauseScene.sks; path = Game/PauseScene.sks; sourceTree = "<group>"; };
 		B541474C1DC0200A00053EB0 /* day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = day.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54147661DC0200A00053EB0 /* dayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B541476A1DC0200A00053EB0 /* dayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayTests.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				B558AA881DCEC54E00D534BA /* Chicken.sks */,
 				B5482D901DCF965200F0DF32 /* EggNode.swift */,
 				B5482D921DCF996200F0DF32 /* GameConstants.swift */,
+				B534EF991DCFC3A200223171 /* PauseScene.sks */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				B56C87041DC07E7E00FEE573 /* Default-568h@2x.png in Resources */,
 				B56C86E21DC078EE00FEE573 /* Actions.sks in Resources */,
 				B558AA891DCEC54E00D534BA /* Chicken.sks in Resources */,
+				B534EF9A1DCFC3A200223171 /* PauseScene.sks in Resources */,
 				B56C86F01DC0796E00FEE573 /* Info.plist in Resources */,
 				B56C87011DC07E7E00FEE573 /* buttonClick.mp3 in Resources */,
 				B56C87081DC07E7E00FEE573 /* SettingsButton.png in Resources */,
