@@ -10,6 +10,8 @@ import SpriteKit
 
 class BirdSprite : SKSpriteNode {
 
+    let warningObjectName = "warning"
+    
     var eggTexture : SKTexture
     var timeBetweenEggs: Float = 10.0
     var timeUntilNextEgg: Float = 10.0
@@ -27,6 +29,8 @@ class BirdSprite : SKSpriteNode {
         beakSprite.zPosition = 2;
         self.addChild(beakSprite)
         
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -self.frame.width/2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        
         // make the anchor point at the bottom
         self.anchorPoint = CGPoint(x: 0.5, y: 0.0)
     }
@@ -43,7 +47,7 @@ class BirdSprite : SKSpriteNode {
             // add an indicator that shows that an egg must be laid soon
             let speechTexture = SKTexture(imageNamed: "speech_bubble")
             let warning = SKSpriteNode(texture: speechTexture)
-            warning.name = "warning"
+            warning.name = self.warningObjectName
             warning.anchorPoint = CGPoint(x: 1, y: 0)
             warning.position = CGPoint(x:self.frame.size.width/2, y:self.frame.size.height)
             self.addChild(warning);
@@ -54,12 +58,12 @@ class BirdSprite : SKSpriteNode {
         // add egg to scene
         let egg = SKSpriteNode(texture: eggTexture, size: eggTexture.size())
         egg.zPosition = 3
-        egg.physicsBody = SKPhysicsBody(circleOfRadius: eggTexture.size().width)
+        egg.physicsBody = SKPhysicsBody(circleOfRadius: eggTexture.size().width/2)
         egg.position = (self.scene?.convert(CGPoint.zero, from: self))!
         self.scene?.addChild(egg)
         
         self.timeUntilNextEgg = self.timeBetweenEggs
         
-        self.childNode(withName: "warning")?.removeFromParent()
+        self.childNode(withName: self.warningObjectName)?.removeFromParent()
     }
 }
