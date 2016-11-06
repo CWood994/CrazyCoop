@@ -74,7 +74,7 @@ class GameScene: SKScene {
     
     func selectNodeForTouch(touchLocation: CGPoint) {
         let touchedNode = self.atPoint(touchLocation)
-        if touchedNode is BirdSprite {
+        if touchedNode is BirdNode {
             selectedNode?.removeAllActions()
             selectedNode = touchedNode as? SKSpriteNode
             let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
