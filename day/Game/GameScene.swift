@@ -20,7 +20,7 @@ class GameScene: SKScene {
     private var score : Int = 0
     private var nextBirdTime : Float = 10.0
     private var spinnyNode : SKShapeNode?
-    var selectedNode = SKSpriteNode()
+    var selectedNode: SKSpriteNode?
     
     // Collections
     private var birdList : Array<BirdNode> = []
@@ -75,15 +75,12 @@ class GameScene: SKScene {
     func selectNodeForTouch(touchLocation: CGPoint) {
         let touchedNode = self.atPoint(touchLocation)
         if touchedNode is BirdNode {
-            if !selectedNode.isEqual(touchedNode) {
-                selectedNode.removeAllActions()
-                selectedNode = touchedNode as! SKSpriteNode
-                let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
-                        SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
-                        SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
-                selectedNode.run(SKAction.repeatForever(sequence))
-                
-            }
+            selectedNode?.removeAllActions()
+            selectedNode = touchedNode as? SKSpriteNode
+            let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
+                    SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
+                    SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
+            selectedNode?.run(SKAction.repeatForever(sequence))
         }
     }
     
@@ -96,11 +93,84 @@ class GameScene: SKScene {
         let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
         panForTranslation(translation: translation)
     }
+ 
     
     func panForTranslation(translation: CGPoint) {
-        let position = selectedNode.position
-        selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
+        let position = selectedNode?.position
+        selectedNode?.position = CGPoint(x: (position?.x)! + translation.x, y: (position?.y)! + translation.y)
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if(selectedNode != nil){
+            let oldParent = selectedNode?.parent
+            let newParent = getNearestCell(position: (selectedNode?.position)!)
+            let switchBird = newParent.childNode(withName: "bird")
+            selectedNode?.position = CGPoint.zero
+            selectedNode?.removeAllActions()
+            selectedNode?.run(SKAction.rotate(toAngle: 0.0, duration: 0.1))
+
+            selectedNode?.removeFromParent()
+            
+            newParent.addChild(selectedNode!)
+            
+            if(switchBird != nil){
+                switchBird?.removeFromParent()
+                oldParent?.addChild(switchBird!)
+            }
+            
+            selectedNode = nil
+        }
+        
+    }
+    func getNearestCell(position: CGPoint) -> SKNode{
+        var closest: SKNode = cellList.first!
+        var minDistance = Float.infinity
+        var distance: Float
+        for node in cellList {
+            
+            //distance = CGFloat(hypotf(Float(position.x.subtracting(self.convert(node.position, from: node).x)), Float(position.y.subtracting(self.convert(node.position, from: node).y))))
+            
+            
+            
+            distance = hypotf(Float(self.convert(position, from: (selectedNode?.parent!)!).x - node.position.x),
+                              Float(self.convert(position, from: (selectedNode?.parent!)!).y - node.position.y))
+            
+            if (distance < minDistance) {
+                closest = node
+                minDistance = distance
+            }
+        }
+        return closest
+    }
+    
+/*    func touchDown(atPoint pos : CGPoint) {
+        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+            n.position = pos
+            n.strokeColor = SKColor.green
+            self.addChild(n)
+        }
+    }
+    
+
+    
+    func touchUp(atPoint pos : CGPoint) {
+        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+            n.position = pos
+            n.strokeColor = SKColor.red
+            self.addChild(n)
+        }
+    }
+    
+
+    
+
+    
+
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }*/
+    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
