@@ -108,6 +108,7 @@
     [_levelButton addLeadingConstraint:LEVEL_BUTTON_LEADING];
     [_levelButton addBottomConstraint:LEVEL_BUTTON_BOTTOM];
     
+    _levelButton.contentMode = UIViewContentModeScaleAspectFit;
     [_levelButton setBackgroundImage:[UIImage imageNamed:@"LevelImage.png"] forState:UIControlStateNormal];
     _levelButton.adjustsImageWhenHighlighted = NO;
 
