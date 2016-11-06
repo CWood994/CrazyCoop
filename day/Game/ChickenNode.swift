@@ -1,5 +1,5 @@
 //
-//  ChickenSprite.swift
+//  ChickenNode.swift
 //  day
 //
 //  Created by Benjamin Stammen on 11/5/16.
@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class ChickenSprite : BirdSprite {
+class ChickenNode : BirdNode {
     init() {
         super.init(templateFile: "Chicken", timeBetweenEggs: 10.0, eggTexture: SKTexture(imageNamed: "white_egg"))
     }
