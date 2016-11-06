@@ -17,10 +17,17 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     private var scoreLabel : SKLabelNode?
     private var nextBirdLabel : SKLabelNode?
-    private var score : Int = 0
     private var nextBirdTime : Float = 10.0
-    private var spinnyNode : SKShapeNode?
+    
     var selectedNode = SKSpriteNode()
+    
+    // Game Attributes
+    private var strikes : Int = 0
+    private var currentStreak : Int = 0
+    private var maxStreak : Int = 0
+    private var score : Int = 0
+    
+
     
     // Collections
     private var birdList : Array<BirdNode> = []
@@ -128,7 +135,7 @@ class GameScene: SKScene {
         nextBirdTime = nextBirdTime - deltaTime;
         if (nextBirdTime <= 0) {
             nextBirdTime = 10.0
-            self.addBird();
+            self.addBirdToGame();
         }
         
         for bird in self.birdList {
@@ -139,7 +146,7 @@ class GameScene: SKScene {
     }
     
     // Adds a new bird to an open position on the grid, dismissing an older bird if necessary
-    func addBird() {
+    func addBirdToGame() {
         
         let bird = ChickenNode()
         
@@ -161,6 +168,30 @@ class GameScene: SKScene {
         }
         
         self.birdList.append(bird)
+    }
+    
+    // Removes the passed in bird from the game by value, ensuring all precautions are taken
+    func removeBirdFromGame(birdToRemove: BirdNode) {
+        for index in 0...self.birdList.count {
+            if (self.birdList[index].parent?.name == birdToRemove.parent?.name) {
+                birdList.remove(at: index)
+                break
+            }
+        }
+        birdToRemove.removeFromParent()
+    }
+    
+    // Adds a strike, and ends the game if necessary
+    func addStrike() {
+        self.strikes += 1
+        updateLabels()
+        if (self.strikes >= 3) {
+            self.endGame()
+        }
+    }
+    
+    func endGame() {
+        
     }
     
     func updateLabels() {
@@ -199,6 +230,8 @@ extension GameScene: SKPhysicsContactDelegate {
                 debugPrint("A chicken and egg collided!")
                 eggNode?.removeFromParent()
                 // tell the bird to go away, too
+                self.removeBirdFromGame(birdToRemove: birdNode!)
+                self.addStrike()
             }
             
             
