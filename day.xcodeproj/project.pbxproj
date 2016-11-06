@@ -28,6 +28,7 @@
 		B5491AA61DC5A35F00255E8A /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5491AA51DC5A35F00255E8A /* MenuScene.sks */; };
 		B5491AA81DC5A37900255E8A /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA71DC5A37900255E8A /* MenuScene.swift */; };
 		B5491AAA1DC5C0DA00255E8A /* BirdSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA91DC5C0DA00255E8A /* BirdSprite.swift */; };
+		B558AA891DCEC54E00D534BA /* Chicken.sks in Resources */ = {isa = PBXBuildFile; fileRef = B558AA881DCEC54E00D534BA /* Chicken.sks */; };
 		B56C86B11DC077DC00FEE573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B56C86AA1DC077DC00FEE573 /* Assets.xcassets */; };
 		B56C86B91DC0785600FEE573 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86B81DC0785600FEE573 /* LoginViewController.swift */; };
 		B56C86BF1DC0786F00FEE573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56C86BB1DC0786F00FEE573 /* LaunchScreen.storyboard */; };
@@ -105,6 +106,7 @@
 		B5491AA51DC5A35F00255E8A /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = Game/MenuScene.sks; sourceTree = "<group>"; };
 		B5491AA71DC5A37900255E8A /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuScene.swift; path = Game/MenuScene.swift; sourceTree = "<group>"; };
 		B5491AA91DC5C0DA00255E8A /* BirdSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirdSprite.swift; sourceTree = "<group>"; };
+		B558AA881DCEC54E00D534BA /* Chicken.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Chicken.sks; sourceTree = "<group>"; };
 		B56C86AA1DC077DC00FEE573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B56C86B81DC0785600FEE573 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		B56C86BC1DC0786F00FEE573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				B5491AA91DC5C0DA00255E8A /* BirdSprite.swift */,
 				B532E9A41DCE422C003B695F /* ChickenSprite.swift */,
 				B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */,
+				B558AA881DCEC54E00D534BA /* Chicken.sks */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				B56C87051DC07E7E00FEE573 /* Images.xcassets in Resources */,
 				B56C87041DC07E7E00FEE573 /* Default-568h@2x.png in Resources */,
 				B56C86E21DC078EE00FEE573 /* Actions.sks in Resources */,
+				B558AA891DCEC54E00D534BA /* Chicken.sks in Resources */,
 				B56C86F01DC0796E00FEE573 /* Info.plist in Resources */,
 				B56C87011DC07E7E00FEE573 /* buttonClick.mp3 in Resources */,
 				B56C87081DC07E7E00FEE573 /* SettingsButton.png in Resources */,

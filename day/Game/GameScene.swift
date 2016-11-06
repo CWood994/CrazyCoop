@@ -31,17 +31,7 @@ class GameScene: SKScene {
     override func sceneDidLoad() {
 
         if (!self.gameInitialized) {
-            self.lastUpdateTime = 0
             
-            // Initialize score label
-            self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
-            
-            
-            // Initialize bird label
-            self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
-            
-            self.updateLabels()
-            self.initializeGame()
             /*// Create shape node to use during mouse interaction
              let w = (self.size.width + self.size.height) * 0.05
              self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
@@ -56,6 +46,20 @@ class GameScene: SKScene {
              }*/
             self.gameInitialized = true
         }
+    }
+    
+    override func didMove(to view: SKView) {
+        self.lastUpdateTime = 0
+        
+        // Initialize score label
+        self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
+        
+        
+        // Initialize bird label
+        self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
+        
+        self.updateLabels()
+        self.initializeGame()
     }
     
     func initializeGame() {
