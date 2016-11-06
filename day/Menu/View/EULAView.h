@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EULAView : UIView
+@property IBOutlet UIButton *goToWebsite;
 @property (strong, nonatomic) UIButton *dismissButton;
 @property (strong, nonatomic) UIButton *acceptButton;
 

@@ -10,10 +10,11 @@
 #define PLAY_BUTTON_BOTTOM_HEIGHT (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  20 :  80
 #define LEVEL_BUTTON_LEADING (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  200 :  60
 #define LEVEL_BUTTON_TRAILING (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  200 :  60
-#define LEVEL_BUTTON_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  70 :  100
+#define LEVEL_BUTTON_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  70 :  170
 #define LEVEL_BUTTON_BOTTOM (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  100 :  200
 #define MAIN_MENU_SMALL_BUTTONS_LEADING_SPACE (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  50 :  20
 #define USER_DATA_BAR_WIDTH (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  ([[UIScreen mainScreen] bounds].size.width - 190) :  ([[UIScreen mainScreen] bounds].size.width - 130)
+#define LEVEL_BUTTON_WIDTH_HEIGHT (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  100 :  100
 /* Settings View */
 #define SETTINGS_BUTTON_HEIGHT (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  40 :  80
 #define SETTINGS_TBD_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  90 :  142

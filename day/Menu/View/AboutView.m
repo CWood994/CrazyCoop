@@ -51,10 +51,10 @@
     [_textView addLeadingConstraint:15];
     [_textView addTopConstraint:15];
     
-    [_textView setText:@"Bird Game\n\n How to play:\n Get egged!"];
+    [_textView setText:@"Bird Game\n\n How to play:\n\n 1. Collect as many eggs as possible \n\n 2. Don't let a bird get hit by an egg. If it happens 3 times then you loose. \n\n 3.drag and drop birds to different nests to avoid eggs dropping on them. \n"];
     [_textView setBackgroundColor:[UIColor blackColor]];
     [_textView setTextColor:[UIColor whiteColor]];
-    [_textView setFont:[UIFont systemFontOfSize:30]];
+    [_textView setFont:[UIFont systemFontOfSize:20]];
     [_textView setEditable:NO];
     [_textView setScrollEnabled:YES];
     [_textView setTextAlignment:NSTextAlignmentCenter];
