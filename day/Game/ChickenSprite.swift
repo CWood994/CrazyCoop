@@ -10,10 +10,7 @@ import SpriteKit
 
 class ChickenSprite : BirdSprite {
     init() {
-        super.init(beakTexture: SKTexture(imageNamed: "yellow_triangle_beak"),
-                   bodyTexture: SKTexture(imageNamed: "white_body"),
-                   eggTexture: SKTexture(imageNamed: "egg"),
-                   timeBetweenEggs: 10.0)
+        super.init(templateFile: "Chicken", timeBetweenEggs: 10.0, eggTexture: SKTexture(imageNamed: "white_egg"))
     }
     
     required init?(coder aDecoder: NSCoder) {

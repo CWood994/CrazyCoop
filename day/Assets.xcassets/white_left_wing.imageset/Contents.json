@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "white_body.png",
+      "filename" : "white_left_wing.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "white_body-1.png",
+      "filename" : "white_left_wing-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "white_body-2.png",
+      "filename" : "white_left_wing-2.png",
       "scale" : "3x"
     }
   ],

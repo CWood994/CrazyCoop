@@ -11,6 +11,8 @@ import SpriteKit
 class BirdSprite : SKSpriteNode {
 
     let warningObjectName = "warning"
+    let EggPhysicsLayer    : UInt32 = 0x1 << 1
+    let ChickenPhysicsLayer: UInt32 = 0x1 << 2
     
     var eggTexture : SKTexture
     var timeBetweenEggs: Float = 10.0
@@ -18,7 +20,6 @@ class BirdSprite : SKSpriteNode {
     
     init(beakTexture: SKTexture, bodyTexture: SKTexture, eggTexture: SKTexture, timeBetweenEggs: Float) {
         
-        // set eggTexture
         self.eggTexture = eggTexture
         
         super.init(texture: bodyTexture, color: UIColor.red, size: bodyTexture.size())
@@ -29,14 +30,40 @@ class BirdSprite : SKSpriteNode {
         beakSprite.zPosition = 2;
         self.addChild(beakSprite)
         
-        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -self.frame.width/2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
-        
         // make the anchor point at the bottom
         self.anchorPoint = CGPoint(x: 0.5, y: 0.0)
+        
+        self.addPhysics()
+    }
+    
+    init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture) {
+        self.eggTexture = eggTexture
+        
+        let importedScene = SKScene(fileNamed: templateFile)
+        let bodyNode: SKSpriteNode = importedScene!.childNode(withName: "//body") as! SKSpriteNode
+
+        super.init(texture: bodyNode.texture, color: bodyNode.color, size: bodyNode.size)
+        self.zPosition = bodyNode.zPosition
+        self.anchorPoint = bodyNode.anchorPoint
+        
+        for child in bodyNode.children {
+            child.removeFromParent()
+            child.isUserInteractionEnabled = false
+            self.addChild(child)
+        }
+        
+        self.addPhysics()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addPhysics() {
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -self.frame.width/2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
+        self.physicsBody?.categoryBitMask = self.ChickenPhysicsLayer
+        self.physicsBody?.contactTestBitMask = self.ChickenPhysicsLayer | self.EggPhysicsLayer
+        self.physicsBody?.collisionBitMask = 0
     }
     
     func updateBird(deltaTime: Float) {
@@ -59,6 +86,9 @@ class BirdSprite : SKSpriteNode {
         let egg = SKSpriteNode(texture: eggTexture, size: eggTexture.size())
         egg.zPosition = 3
         egg.physicsBody = SKPhysicsBody(circleOfRadius: eggTexture.size().width/2)
+        egg.physicsBody?.categoryBitMask = self.EggPhysicsLayer
+        egg.physicsBody?.contactTestBitMask = self.ChickenPhysicsLayer | self.EggPhysicsLayer
+        egg.physicsBody?.collisionBitMask = 0
         egg.position = (self.scene?.convert(CGPoint.zero, from: self))!
         self.scene?.addChild(egg)
         
