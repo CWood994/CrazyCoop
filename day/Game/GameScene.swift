@@ -142,15 +142,10 @@ class GameScene: SKScene {
             
             
             
-            distance = hypotf(Float(self.convert(position, from: selectedNode).x - self.convert(node.position, from: node).x),     Float(self.convert(position, from: selectedNode).y - self.convert(node.position, from: node).y))
+            distance = hypotf(Float(self.convert(position, from: selectedNode.parent!).x - node.position.x),
+                              Float(self.convert(position, from: selectedNode.parent!).y - node.position.y))
             
-            
-            
-            var nodesPosition = self.convert(node.position, from: node)
-            var positionPosition = self.convert(position, from: selectedNode)
-            
-            
-            
+        
             if (distance < minDistance) {
                 closest = node
                 minDistance = distance
