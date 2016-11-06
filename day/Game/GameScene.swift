@@ -20,7 +20,7 @@ class GameScene: SKScene {
     private var score : Int = 0
     private var nextBirdTime : Float = 10.0
     private var spinnyNode : SKShapeNode?
-    var selectedNode = SKSpriteNode()
+    var selectedNode: SKSpriteNode?
     
     // Booleans
     private var gameInitialized : Bool = false
@@ -91,15 +91,12 @@ class GameScene: SKScene {
     func selectNodeForTouch(touchLocation: CGPoint) {
         let touchedNode = self.atPoint(touchLocation)
         if touchedNode is BirdSprite {
-            if !selectedNode.isEqual(touchedNode) {
-                selectedNode.removeAllActions()
-                selectedNode = touchedNode as! SKSpriteNode
-                let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
-                        SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
-                        SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
-                selectedNode.run(SKAction.repeatForever(sequence))
-                
-            }
+            selectedNode?.removeAllActions()
+            selectedNode = touchedNode as? SKSpriteNode
+            let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
+                    SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
+                    SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
+            selectedNode?.run(SKAction.repeatForever(sequence))
         }
     }
     
@@ -115,21 +112,30 @@ class GameScene: SKScene {
  
     
     func panForTranslation(translation: CGPoint) {
-        let position = selectedNode.position
-        selectedNode.position = CGPoint(x: position.x + translation.x, y: position.y + translation.y)
+        let position = selectedNode?.position
+        selectedNode?.position = CGPoint(x: (position?.x)! + translation.x, y: (position?.y)! + translation.y)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let oldParent = selectedNode.parent
-        let newParent = getNearestCell(position: selectedNode.position)
-        selectedNode.position = CGPoint.zero
-        selectedNode.removeAllActions()
-        selectedNode.run(SKAction.rotate(toAngle: 0.0, duration: 0.1))
+        if(selectedNode != nil){
+            let oldParent = selectedNode?.parent
+            let newParent = getNearestCell(position: (selectedNode?.position)!)
+            let switchBird = newParent.childNode(withName: "bird")
+            selectedNode?.position = CGPoint.zero
+            selectedNode?.removeAllActions()
+            selectedNode?.run(SKAction.rotate(toAngle: 0.0, duration: 0.1))
 
-        selectedNode.removeFromParent()
-        
-        newParent.addChild(selectedNode)
-        selectedNode = SKSpriteNode.init()
+            selectedNode?.removeFromParent()
+            
+            newParent.addChild(selectedNode!)
+            
+            if(switchBird != nil){
+                switchBird?.removeFromParent()
+                oldParent?.addChild(switchBird!)
+            }
+            
+            selectedNode = nil
+        }
         
     }
     func getNearestCell(position: CGPoint) -> SKNode{
@@ -142,10 +148,9 @@ class GameScene: SKScene {
             
             
             
-            distance = hypotf(Float(self.convert(position, from: selectedNode.parent!).x - node.position.x),
-                              Float(self.convert(position, from: selectedNode.parent!).y - node.position.y))
+            distance = hypotf(Float(self.convert(position, from: (selectedNode?.parent!)!).x - node.position.x),
+                              Float(self.convert(position, from: (selectedNode?.parent!)!).y - node.position.y))
             
-        
             if (distance < minDistance) {
                 closest = node
                 minDistance = distance
