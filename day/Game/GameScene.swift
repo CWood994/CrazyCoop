@@ -99,7 +99,7 @@ class GameScene: SKScene {
         }
     }
     
-    /*
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         //for t in touches { self.touchesMoved(toPoint: t.location(in: self)) }
         let touch = touches.first! as UITouch
@@ -108,7 +108,7 @@ class GameScene: SKScene {
         let translation = CGPoint(x: positionInScene.x - previousPosition.x, y: positionInScene.y - previousPosition.y)
         panForTranslation(translation: translation)
     }
- */
+ 
     
     func panForTranslation(translation: CGPoint) {
         let position = selectedNode.position
@@ -116,20 +116,37 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        _ = selectedNode.parent
-        let newParent = getNearestCell(position: self.position)
+        let oldParent = selectedNode.parent
+        let newParent = getNearestCell(position: selectedNode.position)
+        selectedNode.position = CGPoint.zero
+        selectedNode.removeAllActions()
+        selectedNode.run(SKAction.rotate(toAngle: 0.0, duration: 0.1))
+
         selectedNode.removeFromParent()
         
         newParent.addChild(selectedNode)
-        selectedNode.position = (cellList.last?.position)!
+        selectedNode = SKSpriteNode.init()
         
     }
     func getNearestCell(position: CGPoint) -> SKNode{
         var closest: SKNode = cellList.first!
-        var minDistance = CGFloat.infinity
-        var distance: CGFloat
+        var minDistance = Float.infinity
+        var distance: Float
         for node in cellList {
-            distance = CGFloat(hypotf(Float(position.x.subtracting(node.position.x)), Float(position.y.subtracting(node.position.y))))
+            
+            //distance = CGFloat(hypotf(Float(position.x.subtracting(self.convert(node.position, from: node).x)), Float(position.y.subtracting(self.convert(node.position, from: node).y))))
+            
+            
+            
+            distance = hypotf(Float(self.convert(position, from: selectedNode).x - self.convert(node.position, from: node).x),     Float(self.convert(position, from: selectedNode).y - self.convert(node.position, from: node).y))
+            
+            
+            
+            var nodesPosition = self.convert(node.position, from: node)
+            var positionPosition = self.convert(position, from: selectedNode)
+            
+            
+            
             if (distance < minDistance) {
                 closest = node
                 minDistance = distance
