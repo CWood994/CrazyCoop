@@ -28,7 +28,7 @@ class BirdNode : SKSpriteNode {
         super.init(texture: bodyNode.texture, color: bodyNode.color, size: bodyNode.size)
         self.zPosition = bodyNode.zPosition
         self.anchorPoint = bodyNode.anchorPoint
-        
+        self.name = "bird"
         for child in bodyNode.children {
             child.removeFromParent()
             child.isUserInteractionEnabled = false
