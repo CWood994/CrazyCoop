@@ -14,7 +14,9 @@ struct GameConstants {
         static let BirdPhysicsLayer: UInt32 = 0x1 << 2
         static let GoalPhysicsLayer: UInt32 = 0x1 << 3
     }
-    struct CrashlyticsConstants {
-        static let userType = "User Type";
+    struct LayerConstants {
+        static let BackgroundLayer: CGFloat = 0;
+        static let CharacterLayer: CGFloat = 5;
+        static let UILayer: CGFloat = 10;
     }
 }

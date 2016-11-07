@@ -27,15 +27,13 @@ class BirdNode : SKSpriteNode {
         self.timeBetweenEggs = timeBetweenEggs
         self.timeUntilNextEgg = timeBetweenEggs
         self.eggValue = eggValue
-        super.init(texture: bodyNode.texture, color: bodyNode.color, size: bodyNode.size)
-        self.zPosition = bodyNode.zPosition
+        super.init(texture: nil, color: bodyNode.color, size: bodyNode.size)
+        self.zPosition = GameConstants.LayerConstants.CharacterLayer
         self.anchorPoint = bodyNode.anchorPoint
         self.name = "bird"
-        for child in bodyNode.children {
-            child.removeFromParent()
-            child.isUserInteractionEnabled = false
-            self.addChild(child)
-        }
+        bodyNode.zPosition = -1
+        bodyNode.removeFromParent()
+        self.addChild(bodyNode)
         
         self.addPhysics()
     }
