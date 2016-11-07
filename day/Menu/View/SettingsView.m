@@ -79,8 +79,8 @@
     [_menuBackgroundOutter setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:_menuBackgroundOutter];
     
-    [_menuBackgroundOutter addTopConstraint:30];
-    [_menuBackgroundOutter addBottomConstraint:30];
+    [_menuBackgroundOutter addTopConstraint:60];
+    [_menuBackgroundOutter addBottomConstraint:60];
     [_menuBackgroundOutter addLeadingConstraint:30];
     [_menuBackgroundOutter addTrailingConstraint:30];
     

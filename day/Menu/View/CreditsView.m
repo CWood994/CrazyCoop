@@ -51,7 +51,7 @@
     [_textView addLeadingConstraint:15];
     [_textView addTopConstraint:15];
     
-    [_textView setText:@"Bird Game\n\nConnor Wood\nBenjamin Stammen\nMicheal Mascolino\n\n OSU CSE 5236\n\n Mobile App Dev\n"];
+    [_textView setText:@"Crazy Coop\n\nConnor Wood\nBenjamin Stammen\nMicheal Mascolino\n\n OSU CSE 5236\n\n Mobile App Dev\n"];
     [_textView setBackgroundColor:[UIColor blackColor]];
     [_textView setTextColor:[UIColor whiteColor]];
     [_textView setFont:[UIFont systemFontOfSize:30]];
