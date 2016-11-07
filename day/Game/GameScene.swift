@@ -20,6 +20,7 @@ class GameScene: SKScene {
     private var streakLabel : SKLabelNode?
     private var scoreLabel : SKLabelNode?
     private var nextBirdLabel : SKLabelNode?
+    private var pauseButton : PauseButtonNode?
     
     // Game Attributes
     private var strikes : Int = 0
@@ -29,11 +30,13 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     private var nextBirdTime : Float = 10.0
     private var selectedNode: SKSpriteNode?
+    var showingMenu : Bool = false;
     
     // Collections
     private var birdList : Array<BirdNode> = []
     private var cellList : Array<SKNode> = []
 
+    // MARK: Game Lifecycle
     override func didMove(to view: SKView) {
         self.lastUpdateTime = 0
         
@@ -41,6 +44,8 @@ class GameScene: SKScene {
         self.streakLabel = self.childNode(withName: "//streak_label") as? SKLabelNode
         self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
+        self.pauseButton = self.childNode(withName: "//pause_button") as! PauseButtonNode
+        self.pauseButton?.gameScene = self
         
         self.updateLabels()
         self.initializeGame()
@@ -73,6 +78,16 @@ class GameScene: SKScene {
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.collisionBitMask = 0
         goalNode?.physicsBody = physicsBody
+    }
+    
+    func showMenu() {
+        debugPrint("showing menu...")
+        self.showingMenu = true
+    }
+    
+    func hideMenu() {
+        debugPrint("hiding menu...")
+        self.showingMenu = false
     }
     
     func degToRad(degree: Double) -> CGFloat {

@@ -63,7 +63,6 @@ class ButtonNode : SKSpriteNode {
 class PauseButtonNode : ButtonNode {
     
     var gameScene : GameScene?
-    var gamePaused: Bool = false
     
     override func buttonSeleted() {
         self.run(SKAction.scale(to: 1.5, duration: 0.05))
@@ -74,6 +73,12 @@ class PauseButtonNode : ButtonNode {
     }
     
     override func buttonPressed() {
-        debugPrint("Pause the game!");
+        if let game: GameScene = self.gameScene {
+            if (game.showingMenu) {
+                game.hideMenu()
+            } else {
+                game.showMenu()
+            }
+        }
     }
 }
