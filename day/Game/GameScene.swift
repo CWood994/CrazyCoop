@@ -13,6 +13,8 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
+    var viewController: GameViewController!
+
     
     // Game Entities
     private var strikesLabel : SKLabelNode?
@@ -76,13 +78,17 @@ class GameScene: SKScene {
     func degToRad(degree: Double) -> CGFloat {
         return CGFloat(Double(degree) / 180.0 * M_PI)
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let positionInScene = touch?.location(in: self)
+        
+        let touchedNode = self.atPoint(positionInScene!)
+        if(touchedNode == self.childNode(withName: "exitButton")){
+            self.viewController.exitGame()
+        }
+        
         selectNodeForTouch(touchLocation: positionInScene!)
     }
-
     
     func selectNodeForTouch(touchLocation: CGPoint) {
         let touchedNode = self.atPoint(touchLocation)

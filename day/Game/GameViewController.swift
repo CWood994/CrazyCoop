@@ -32,6 +32,8 @@ class GameViewController: UIViewController {
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
+                sceneNode.viewController = self
+
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
@@ -54,6 +56,17 @@ class GameViewController: UIViewController {
         return true
     }
 
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if(motion == UIEventSubtype.motionShake){
+            skView.scene?.view?.isPaused = true
+        }
+        
+    }
+    
+    func exitGame(){
+        self.navigationController?.popViewController(animated: true);
+    }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
         /*if UIDevice.current.userInterfaceIdiom == .phone {
