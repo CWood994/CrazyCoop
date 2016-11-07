@@ -23,7 +23,7 @@
 		288ED57C1DD00E18002A75CD /* LevelImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 288ED57B1DD00E18002A75CD /* LevelImage.png */; };
 		288ED57E1DD016E6002A75CD /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 288ED57D1DD016E6002A75CD /* sky.png */; };
 		35380C9A4D64F1FC9A22FE8A /* Pods_day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF57EF509F1304A2E6E64CB /* Pods_day.framework */; };
-		B51E8F8B1DD0D83E00113166 /* PauseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8A1DD0D83E00113166 /* PauseScene.swift */; };
+		B51E8F8B1DD0D83E00113166 /* PauseSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8A1DD0D83E00113166 /* PauseSceneNode.swift */; };
 		B51E8F8D1DD0DBA500113166 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8C1DD0DBA500113166 /* ButtonNode.swift */; };
 		B51E8F8F1DD100EC00113166 /* EggIndicator.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51E8F8E1DD100EC00113166 /* EggIndicator.sks */; };
 		B532E9A51DCE422C003B695F /* ChickenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A41DCE422C003B695F /* ChickenNode.swift */; };
@@ -102,7 +102,7 @@
 		288ED57D1DD016E6002A75CD /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = Assets/sky.png; sourceTree = "<group>"; };
 		3C83BFA68A880347DD693E4B /* Pods-day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day.release.xcconfig"; path = "Pods/Target Support Files/Pods-day/Pods-day.release.xcconfig"; sourceTree = "<group>"; };
 		9AF57EF509F1304A2E6E64CB /* Pods_day.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_day.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B51E8F8A1DD0D83E00113166 /* PauseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PauseScene.swift; path = Game/PauseScene.swift; sourceTree = "<group>"; };
+		B51E8F8A1DD0D83E00113166 /* PauseSceneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PauseSceneNode.swift; path = Game/PauseSceneNode.swift; sourceTree = "<group>"; };
 		B51E8F8C1DD0DBA500113166 /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ButtonNode.swift; path = Game/ButtonNode.swift; sourceTree = "<group>"; };
 		B51E8F8E1DD100EC00113166 /* EggIndicator.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EggIndicator.sks; sourceTree = "<group>"; };
 		B532E9A41DCE422C003B695F /* ChickenNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChickenNode.swift; path = Game/ChickenNode.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 				B5482D921DCF996200F0DF32 /* GameConstants.swift */,
 				B534EF991DCFC3A200223171 /* PauseScene.sks */,
 				B534EF9B1DD0390B00223171 /* EggIndicatorNode.swift */,
-				B51E8F8A1DD0D83E00113166 /* PauseScene.swift */,
+				B51E8F8A1DD0D83E00113166 /* PauseSceneNode.swift */,
 				B51E8F8C1DD0DBA500113166 /* ButtonNode.swift */,
 				B51E8F8E1DD100EC00113166 /* EggIndicator.sks */,
 			);
@@ -617,7 +617,7 @@
 				B56C86EF1DC0796E00FEE573 /* AppDelegate.swift in Sources */,
 				B5482D911DCF965200F0DF32 /* EggNode.swift in Sources */,
 				B51E8F8D1DD0DBA500113166 /* ButtonNode.swift in Sources */,
-				B51E8F8B1DD0D83E00113166 /* PauseScene.swift in Sources */,
+				B51E8F8B1DD0D83E00113166 /* PauseSceneNode.swift in Sources */,
 				B5491AAA1DC5C0DA00255E8A /* BirdNode.swift in Sources */,
 				B56C86CB1DC078B600FEE573 /* CreditsViewController.m in Sources */,
 				B56C86D91DC078CE00FEE573 /* MenuView.m in Sources */,

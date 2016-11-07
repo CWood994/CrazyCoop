@@ -21,6 +21,7 @@ class GameScene: SKScene {
     private var scoreLabel : SKLabelNode?
     private var nextBirdLabel : SKLabelNode?
     private var pauseButton : PauseButtonNode?
+    private var pauseMenu : PauseSceneNode?
     
     // Game Attributes
     private var strikes : Int = 0
@@ -44,8 +45,9 @@ class GameScene: SKScene {
         self.streakLabel = self.childNode(withName: "//streak_label") as? SKLabelNode
         self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
-        self.pauseButton = self.childNode(withName: "//pause_button") as! PauseButtonNode
+        self.pauseButton = self.childNode(withName: "//pause_button") as? PauseButtonNode
         self.pauseButton?.gameScene = self
+        self.pauseMenu = PauseSceneNode()
         
         self.updateLabels()
         self.initializeGame()
@@ -83,11 +85,15 @@ class GameScene: SKScene {
     func showMenu() {
         debugPrint("showing menu...")
         self.showingMenu = true
+        self.physicsWorld.speed = 0.0
+        self.addChild(self.pauseMenu!)
     }
     
     func hideMenu() {
         debugPrint("hiding menu...")
         self.showingMenu = false
+        self.physicsWorld.speed = 1.0
+        self.pauseMenu?.removeFromParent()
     }
     
     func degToRad(degree: Double) -> CGFloat {
@@ -191,14 +197,16 @@ class GameScene: SKScene {
         // Calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
+        if (!self.showingMenu) {
+            // Update entities
+            for entity in self.entities {
+                entity.update(deltaTime: dt)
+            }
+            
+            self.updateGame(deltaTime: Float(dt))
         }
         
         self.lastUpdateTime = currentTime
-        
-        self.updateGame(deltaTime: Float(dt))
     }
     
     // called to update timers and actions in game apart from gamekit entities

@@ -14,12 +14,15 @@ class ButtonNode : SKSpriteNode {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        debugPrint("Button Initialized")
-        self.isUserInteractionEnabled = true
+        self.initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.initialize()
+    }
+    
+    func initialize() {
         self.isUserInteractionEnabled = true
     }
     
@@ -63,6 +66,11 @@ class ButtonNode : SKSpriteNode {
 class PauseButtonNode : ButtonNode {
     
     var gameScene : GameScene?
+    
+    override func initialize() {
+        super.initialize()
+        self.zPosition = GameConstants.LayerConstants.UILayer + 1
+    }
     
     override func buttonSeleted() {
         self.run(SKAction.scale(to: 1.5, duration: 0.05))
