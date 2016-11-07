@@ -79,6 +79,10 @@ class GameViewController: UIViewController {
         self.navigationController?.popViewController(animated: true);
     }
     
+    func restartGame() {
+        self.viewDidLoad()
+    }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
         /*if UIDevice.current.userInterfaceIdiom == .phone {

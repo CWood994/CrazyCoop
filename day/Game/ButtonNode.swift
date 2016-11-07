@@ -90,3 +90,42 @@ class PauseButtonNode : ButtonNode {
         }
     }
 }
+
+class RestartButtonNode : ButtonNode {
+    
+    var gameScene : GameScene?
+    
+    override func buttonSeleted() {
+        self.run(SKAction.scale(to: 0.8, duration: 0.05))
+    }
+    
+    override func buttonDeselected() {
+        self.run(SKAction.scale(to: 1, duration: 0.05))
+    }
+    
+    override func buttonPressed() {
+        if let game: GameScene = self.gameScene {
+            game.viewController.restartGame()
+        }
+    }
+}
+
+class MenuButtonNode : ButtonNode {
+    
+    var gameScene : GameScene?
+    
+    override func buttonSeleted() {
+        self.run(SKAction.scale(to: 0.8, duration: 0.05))
+    }
+    
+    override func buttonDeselected() {
+        self.run(SKAction.scale(to: 1, duration: 0.05))
+    }
+    
+    override func buttonPressed() {
+        if let game: GameScene = self.gameScene {
+            //game.viewController.AddNewGameToFirebase(score:score,streak:maxStreak) //TODO: call this line when game is over only
+            game.viewController.exitGame()
+        }
+    }
+}

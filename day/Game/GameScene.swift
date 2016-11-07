@@ -47,13 +47,14 @@ class GameScene: SKScene {
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
         self.pauseButton = self.childNode(withName: "//pause_button") as? PauseButtonNode
         self.pauseButton?.gameScene = self
-        self.pauseMenu = PauseSceneNode()
+        self.pauseMenu = PauseSceneNode(gameScene: self)
         
         self.updateLabels()
         self.initializeGame()
     }
     
     func initializeGame() {
+        self.birdList = []
         // add all cells to a list
         for index in 1...9 {
             self.cellList.append(self.childNode(withName: "//location_\(index)")!)
@@ -103,13 +104,6 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let positionInScene = touch?.location(in: self)
-        
-        let touchedNode = self.atPoint(positionInScene!)
-        if(touchedNode == self.childNode(withName: "exitButton")){
-            self.viewController.AddNewGameToFirebase(score:score,streak:maxStreak) //TODO: call this line when game is over only
-            self.viewController.exitGame()
-        }
-        
         selectNodeForTouch(touchLocation: positionInScene!)
     }
     
@@ -230,6 +224,7 @@ class GameScene: SKScene {
         let bird = ChickenNode()
         
         if (birdList.count < 9) {
+            self.cellList.shuffle()
             // just search for the empty grid spot
             for index in 0...self.cellList.count {
                 if (self.cellList[index].children.count == 0) {

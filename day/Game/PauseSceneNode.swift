@@ -10,7 +10,10 @@ import SpriteKit
 
 class PauseSceneNode : SKNode {
 
-    override init() {
+    private var gameScene: GameScene
+    
+    init(gameScene: GameScene) {
+        self.gameScene = gameScene
         let importedScene = SKScene(fileNamed: "PauseScene")
         let containerNode: SKNode = importedScene!.childNode(withName: "//container")!
         super.init()
@@ -21,6 +24,11 @@ class PauseSceneNode : SKNode {
         }
         self.isUserInteractionEnabled = true
         self.zPosition = GameConstants.LayerConstants.UILayer
+        
+        let menuButton = self.childNode(withName: "//menu_button") as! MenuButtonNode
+        menuButton.gameScene = self.gameScene
+        let restartButton = self.childNode(withName: "//restart_button") as! RestartButtonNode
+        restartButton.gameScene = self.gameScene
     }
     
     required init?(coder aDecoder: NSCoder) {
