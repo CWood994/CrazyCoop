@@ -16,8 +16,9 @@ class BirdNode : SKSpriteNode {
     var eggTexture : SKTexture
     var timeBetweenEggs: Float
     var timeUntilNextEgg: Float
+    private var eggValue: Int
     
-    init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture) {
+    init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture, eggValue: Int) {
         
         let importedScene = SKScene(fileNamed: templateFile)
         let bodyNode: SKSpriteNode = importedScene!.childNode(withName: "//body") as! SKSpriteNode
@@ -25,6 +26,7 @@ class BirdNode : SKSpriteNode {
         self.eggTexture = eggTexture
         self.timeBetweenEggs = timeBetweenEggs
         self.timeUntilNextEgg = timeBetweenEggs
+        self.eggValue = eggValue
         super.init(texture: bodyNode.texture, color: bodyNode.color, size: bodyNode.size)
         self.zPosition = bodyNode.zPosition
         self.anchorPoint = bodyNode.anchorPoint
@@ -68,7 +70,7 @@ class BirdNode : SKSpriteNode {
     
     func layEgg() {
         // add egg to scene
-        let egg = EggNode(sourceBird: self, eggTexture: self.eggTexture)
+        let egg = EggNode(sourceBird: self, eggTexture: self.eggTexture, eggValue: self.eggValue)
         egg.position = (self.scene?.convert(CGPoint.zero, from: self))!
         self.scene?.addChild(egg)
         

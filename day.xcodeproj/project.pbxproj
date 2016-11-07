@@ -26,6 +26,7 @@
 		B532E9A51DCE422C003B695F /* ChickenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A41DCE422C003B695F /* ChickenNode.swift */; };
 		B532E9A71DCE61EF003B695F /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */; };
 		B534EF9A1DCFC3A200223171 /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B534EF991DCFC3A200223171 /* PauseScene.sks */; };
+		B534EF9C1DD0390B00223171 /* EggIndicatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534EF9B1DD0390B00223171 /* EggIndicatorNode.swift */; };
 		B541476B1DC0200A00053EB0 /* dayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B541476A1DC0200A00053EB0 /* dayTests.swift */; };
 		B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54147751DC0200A00053EB0 /* dayUITests.swift */; };
 		B5482D911DCF965200F0DF32 /* EggNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5482D901DCF965200F0DF32 /* EggNode.swift */; };
@@ -101,6 +102,7 @@
 		B532E9A41DCE422C003B695F /* ChickenNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChickenNode.swift; path = Game/ChickenNode.swift; sourceTree = "<group>"; };
 		B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		B534EF991DCFC3A200223171 /* PauseScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PauseScene.sks; path = Game/PauseScene.sks; sourceTree = "<group>"; };
+		B534EF9B1DD0390B00223171 /* EggIndicatorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EggIndicatorNode.swift; sourceTree = "<group>"; };
 		B541474C1DC0200A00053EB0 /* day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = day.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54147661DC0200A00053EB0 /* dayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B541476A1DC0200A00053EB0 /* dayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayTests.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				B5482D901DCF965200F0DF32 /* EggNode.swift */,
 				B5482D921DCF996200F0DF32 /* GameConstants.swift */,
 				B534EF991DCFC3A200223171 /* PauseScene.sks */,
+				B534EF9B1DD0390B00223171 /* EggIndicatorNode.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				2802F0E11DCA4488006FFB5B /* EULAViewController.m in Sources */,
 				B56C86D81DC078CE00FEE573 /* CreditsView.m in Sources */,
 				B5482D931DCF996200F0DF32 /* GameConstants.swift in Sources */,
+				B534EF9C1DD0390B00223171 /* EggIndicatorNode.swift in Sources */,
 				B56C86CC1DC078B600FEE573 /* MenuViewController.m in Sources */,
 				2802F0DB1DCA3EA6006FFB5B /* AboutViewController.m in Sources */,
 				B56C86CE1DC078B600FEE573 /* SettingsViewController.m in Sources */,

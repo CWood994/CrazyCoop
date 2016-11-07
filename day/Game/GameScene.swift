@@ -26,7 +26,7 @@ class GameScene: SKScene {
     private var strikes : Int = 0
     private var currentStreak : Int = 0
     private var maxStreak : Int = 0
-    private var score : Int = 0
+    var score : Int = 0
     private var lastUpdateTime : TimeInterval = 0
     private var nextBirdTime : Float = 10.0
     private var selectedNode: SKSpriteNode?
@@ -75,9 +75,11 @@ class GameScene: SKScene {
         physicsBody.collisionBitMask = 0
         goalNode?.physicsBody = physicsBody
     }
+    
     func degToRad(degree: Double) -> CGFloat {
         return CGFloat(Double(degree) / 180.0 * M_PI)
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let positionInScene = touch?.location(in: self)
@@ -275,46 +277,31 @@ class GameScene: SKScene {
 }
 
 extension GameScene: SKPhysicsContactDelegate {
+    
     func didBegin(_ contact: SKPhysicsContact) {
         
-        // If a chicken and an egg collide...
-        if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
-            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.EggPhysicsLayer) ||
-           (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.EggPhysicsLayer &&
-            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
-            let birdNode: BirdNode?
-            let eggNode:  EggNode?
-            if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
-                birdNode = contact.bodyA.node as! BirdNode?
-                eggNode  = contact.bodyB.node as! EggNode?
-            } else {
-                birdNode = contact.bodyB.node as! BirdNode?
-                eggNode  = contact.bodyA.node as! EggNode?
-            }
-            
-            if (birdNode != eggNode?.sourceBird) {
-                debugPrint("A chicken and egg collided!")
-                eggNode?.removeFromParent()
-                // tell the bird to go away, too
-                self.removeBirdFromGame(birdToRemove: birdNode!)
-                self.addStrike()
-            }
-            
-            
-        }
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
-        // If two chickens begin contact...
-        if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
-            contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
-            debugPrint("Two chickens collided!")
-        }
-        
-        // If the goal and an egg collide...
-        if (contact.bodyA.categoryBitMask & contact.bodyB.categoryBitMask ==
-            GameConstants.PhysicsConstants.EggPhysicsLayer & GameConstants.PhysicsConstants.GoalPhysicsLayer) {
-            debugPrint("Scored!!!")
-            
-            
+        switch (contactMask) {
+        case GameConstants.PhysicsConstants.BirdPhysicsLayer:
+            debugPrint("Two birds collided.")
+            self.handleBirdBirdCollision(firstBird: contact.bodyA.node as! BirdNode, secondBird: contact.bodyB.node as! BirdNode)
+        case GameConstants.PhysicsConstants.EggPhysicsLayer | GameConstants.PhysicsConstants.BirdPhysicsLayer:
+            debugPrint("Chicken and egg collided.")
+            if let egg = contact.bodyA.node as? EggNode {
+                self.handleEggBirdCollision(egg: egg, bird: contact.bodyB.node as! BirdNode)
+            } else if let egg = contact.bodyB.node as? EggNode {
+                self.handleEggBirdCollision(egg: egg, bird: contact.bodyA.node as! BirdNode)
+            }
+        case GameConstants.PhysicsConstants.EggPhysicsLayer | GameConstants.PhysicsConstants.GoalPhysicsLayer:
+            debugPrint("Egg reached goal.")
+            if let egg = contact.bodyA.node as? EggNode {
+                self.handleEggGoalCollision(egg: egg)
+            } else if let egg = contact.bodyB.node as? EggNode {
+                self.handleEggGoalCollision(egg: egg)
+            }
+        default:
+            print("Unknown case.")
         }
     }
     
@@ -323,6 +310,25 @@ extension GameScene: SKPhysicsContactDelegate {
         if (contact.bodyA.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer &&
             contact.bodyB.categoryBitMask == GameConstants.PhysicsConstants.BirdPhysicsLayer) {
             debugPrint("Two chickens stopped colliding!")
+        }
+    }
+    
+    func handleBirdBirdCollision(firstBird: BirdNode, secondBird: BirdNode) {
+        
+    }
+    
+    func handleEggBirdCollision(egg: EggNode, bird: BirdNode) {
+        if (egg.sourceBird != bird) {
+            egg.removeFromParent()
+            self.removeBirdFromGame(birdToRemove: bird)
+            self.addStrike()
+        }
+    }
+    
+    func handleEggGoalCollision(egg: EggNode) {
+        if (!egg.counted) {
+            self.score += egg.value
+            egg.counted = true
         }
     }
 }

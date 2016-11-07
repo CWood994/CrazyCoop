@@ -1,16 +1,17 @@
 //
-//  ChickenNode.swift
+//  EggIndicatorNode.swift
 //  day
 //
-//  Created by Benjamin Stammen on 11/5/16.
+//  Created by Benjamin Stammen on 11/6/16.
 //  Copyright © 2016 Benjamin Stammen. All rights reserved.
 //
 
 import SpriteKit
 
-class ChickenNode : BirdNode {
+class EggIndicatorNode : SKSpriteNode {
+    
     init() {
-        super.init(templateFile: "Chicken", timeBetweenEggs: 10.0, eggTexture: SKTexture(imageNamed: "white_egg"), eggValue: 1)
+        super.init(texture: nil, color: UIColor.clear, size: CGSize.zero)
     }
     
     required init?(coder aDecoder: NSCoder) {

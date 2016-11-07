@@ -11,9 +11,12 @@ import SpriteKit
 class EggNode : SKSpriteNode {
     
     let sourceBird: BirdNode?
+    let value: Int
+    var counted: Bool = false
     
-    init(sourceBird: BirdNode, eggTexture: SKTexture) {
+    init(sourceBird: BirdNode, eggTexture: SKTexture, eggValue: Int) {
         self.sourceBird = sourceBird
+        self.value = eggValue
         super.init(texture: eggTexture, color: UIColor.clear, size: eggTexture.size())
         let physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         physicsBody.categoryBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
