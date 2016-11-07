@@ -10,7 +10,7 @@ import SpriteKit
 
 class BirdNode : SKSpriteNode {
 
-    let warningObjectName = "warning"
+    static let indicatorNodeName = "eggIndicator"
     
     
     var eggTexture : SKTexture
@@ -56,14 +56,12 @@ class BirdNode : SKSpriteNode {
         self.timeUntilNextEgg = self.timeUntilNextEgg - deltaTime
         if (self.timeUntilNextEgg <= 0.0) {
             self.layEgg()
-        } else if (self.timeUntilNextEgg <= 3.0 && (self.childNode(withName: "warning") == nil)) {
+        } else if (self.timeUntilNextEgg <= 3.0 && (self.childNode(withName: BirdNode.indicatorNodeName) == nil)) {
             // add an indicator that shows that an egg must be laid soon
-            let speechTexture = SKTexture(imageNamed: "speech_bubble")
-            let warning = SKSpriteNode(texture: speechTexture)
-            warning.name = self.warningObjectName
-            warning.anchorPoint = CGPoint(x: 1, y: 0)
-            warning.position = CGPoint(x:self.frame.size.width/2, y:self.frame.size.height)
-            self.addChild(warning);
+            let indicatorNode = EggIndicatorNode(bird: self)
+            indicatorNode.name = BirdNode.indicatorNodeName
+            indicatorNode.position = CGPoint(x: 0, y: self.frame.size.height * 0.9)
+            self.addChild(indicatorNode)
         }
     }
     
@@ -75,6 +73,6 @@ class BirdNode : SKSpriteNode {
         
         self.timeUntilNextEgg = self.timeBetweenEggs
         
-        self.childNode(withName: self.warningObjectName)?.removeFromParent()
+        self.childNode(withName: BirdNode.indicatorNodeName)?.removeFromParent()
     }
 }
