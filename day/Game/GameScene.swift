@@ -22,11 +22,12 @@ class GameScene: SKScene {
     private var nextBirdLabel : SKLabelNode?
     private var pauseButton : PauseButtonNode?
     private var pauseMenu : PauseSceneNode?
+    private var gameOverMenu : GameOverSceneNode?
     
     // Game Attributes
     private var strikes : Int = 0
-    private var currentStreak : Int = 0
-    private var maxStreak : Int = 0
+    var currentStreak : Int = 0
+    var maxStreak : Int = 0
     var score : Int = 0
     private var lastUpdateTime : TimeInterval = 0
     private var nextBirdTime : Float = 10.0
@@ -48,6 +49,7 @@ class GameScene: SKScene {
         self.pauseButton = self.childNode(withName: "//pause_button") as? PauseButtonNode
         self.pauseButton?.gameScene = self
         self.pauseMenu = PauseSceneNode(gameScene: self)
+        self.gameOverMenu = GameOverSceneNode(gameScene: self)
         
         self.updateLabels()
         self.initializeGame()
@@ -95,6 +97,15 @@ class GameScene: SKScene {
         self.showingMenu = false
         self.physicsWorld.speed = 1.0
         self.pauseMenu?.removeFromParent()
+    }
+    
+    func endGame() {
+        self.viewController.AddNewGameToFirebase(score: self.score, streak: self.maxStreak)
+        self.pauseButton?.removeFromParent()
+        self.physicsWorld.speed = 0.0
+        self.showingMenu = true
+        self.gameOverMenu?.setScoreLabel(score: self.score)
+        self.addChild(self.gameOverMenu!)
     }
     
     func degToRad(degree: Double) -> CGFloat {
@@ -263,14 +274,13 @@ class GameScene: SKScene {
     // Adds a strike, and ends the game if necessary
     func addStrike() {
         self.strikes += 1
-        updateLabels()
+        if (self.currentStreak > self.maxStreak) {
+            self.maxStreak = self.currentStreak
+        }
+        self.currentStreak = 0
         if (self.strikes >= 3) {
             self.endGame()
         }
-    }
-    
-    func endGame() {
-        
     }
     
     func updateLabels() {
@@ -320,6 +330,8 @@ extension GameScene: SKPhysicsContactDelegate {
         default:
             print("Unknown case.")
         }
+        
+        self.updateLabels()
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
@@ -344,6 +356,7 @@ extension GameScene: SKPhysicsContactDelegate {
     
     func handleEggGoalCollision(egg: EggNode) {
         self.score += egg.value
+        self.currentStreak += 1
         // we no longer have to register events with this egg
         egg.physicsBody?.contactTestBitMask = 0
         egg.physicsBody?.categoryBitMask = 0
