@@ -43,7 +43,7 @@
 
 @implementation MenuView(Private)
 - (void) setupMenuView{
-    [self setBackgroundColor: [UIColor colorWithPatternImage:[UIImage imageNamed:@"test.jpg"]]];
+    [self setBackgroundColor: [UIColor colorWithPatternImage:[UIImage imageNamed:@"sky.png"]]];
     [self setupPlayButton];
     [self setupProfileButton];
     [self setupSettingsButton];

@@ -64,6 +64,7 @@ class GameViewController: UIViewController {
     }
     
     func exitGame(){
+        skView.scene?.view?.isPaused = true
         self.navigationController?.popViewController(animated: true);
     }
     

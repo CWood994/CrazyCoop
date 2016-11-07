@@ -20,6 +20,7 @@
 #define SETTINGS_TBD_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  90 :  142
 #define SETTINGS_GAME_SETTINGS_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  130 :  234
 #define SETTINGS_MUTE_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  210 :  418
+#define SETTINGS_MUTE_WIDTH (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  220 :  110
 #define SETTINGS_QUIT_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  210 :  418
 #define SETTINGS_SIGN_OUT_TOP (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) ?  170 :  326
 /* Profile View */

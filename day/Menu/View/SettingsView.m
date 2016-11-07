@@ -223,7 +223,7 @@
     [_muteButton addLeadingConstraint:12];
     [_muteButton addHeightConstraint:SETTINGS_BUTTON_HEIGHT];
     [_muteButton addTopConstraint:SETTINGS_MUTE_TOP];
-    [_muteButton addWidthConstraint:110];
+    [_muteButton addWidthConstraint:SETTINGS_MUTE_WIDTH];
     
     [_muteButton setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
     [_muteButton.layer setCornerRadius:10];
@@ -239,7 +239,7 @@
     [_quitButton setTranslatesAutoresizingMaskIntoConstraints:NO];
     [_menuBackgroundOutter addSubview:_quitButton];
     
-    [_quitButton addWidthConstraint:110];
+    [_quitButton addWidthConstraint:SETTINGS_MUTE_WIDTH];
     [_quitButton addHeightConstraint:SETTINGS_BUTTON_HEIGHT];
     [_quitButton addTopConstraint:SETTINGS_QUIT_TOP];
     [_quitButton addTrailingConstraint:12];
