@@ -45,6 +45,7 @@ class BirdNode : SKSpriteNode {
     func addPhysics() {
         let physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -self.frame.width/2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         physicsBody.isDynamic = true
+        physicsBody.fieldBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer
         physicsBody.categoryBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer | GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.collisionBitMask = 0

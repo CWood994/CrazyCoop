@@ -12,7 +12,6 @@ class EggNode : SKSpriteNode {
     
     let sourceBird: BirdNode?
     let value: Int
-    var counted: Bool = false
     
     init(sourceBird: BirdNode, eggTexture: SKTexture, eggValue: Int) {
         self.sourceBird = sourceBird

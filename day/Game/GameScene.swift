@@ -15,7 +15,6 @@ class GameScene: SKScene {
     var graphs = [String : GKGraph]()
     var viewController: GameViewController!
 
-    
     // Game Entities
     private var strikesLabel : SKLabelNode?
     private var streakLabel : SKLabelNode?
@@ -326,10 +325,10 @@ extension GameScene: SKPhysicsContactDelegate {
     }
     
     func handleEggGoalCollision(egg: EggNode) {
-        if (!egg.counted) {
-            self.score += egg.value
-            egg.counted = true
-        }
+        self.score += egg.value
+        // we no longer have to register events with this egg
+        egg.physicsBody?.contactTestBitMask = 0
+        egg.physicsBody?.categoryBitMask = 0
     }
 }
 
