@@ -84,6 +84,7 @@ class GameScene: SKScene {
         
         let touchedNode = self.atPoint(positionInScene!)
         if(touchedNode == self.childNode(withName: "exitButton")){
+            self.viewController.AddNewGameToFirebase(score:score,streak:maxStreak) //TODO: call this line when game is over only
             self.viewController.exitGame()
         }
         

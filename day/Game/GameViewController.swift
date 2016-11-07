@@ -63,6 +63,17 @@ class GameViewController: UIViewController {
         
     }
     
+    func AddNewGameToFirebase(score: Int, streak: Int){
+        if( FirebaseHelper.streak < streak){
+            FirebaseHelper.streak = streak
+        }
+        if( FirebaseHelper.highscore < score){
+            FirebaseHelper.highscore = score
+        }
+        FirebaseHelper.gamesPlayed = FirebaseHelper.gamesPlayed + 1
+        FirebaseHelper.setData()
+    }
+    
     func exitGame(){
         skView.scene?.view?.isPaused = true
         self.navigationController?.popViewController(animated: true);
