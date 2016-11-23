@@ -47,6 +47,7 @@ class GameScene: SKScene {
         self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
         self.pauseButton = self.childNode(withName: "//pause_button") as? PauseButtonNode
+        viewController.pauseMenu = self.childNode(withName: "//pause_button") as? PauseButtonNode
         self.pauseButton?.gameScene = self
         self.pauseMenu = PauseSceneNode(gameScene: self)
         self.gameOverMenu = GameOverSceneNode(gameScene: self)
@@ -54,6 +55,7 @@ class GameScene: SKScene {
         self.updateLabels()
         self.initializeGame()
     }
+
     
     func initializeGame() {
         self.birdList = []

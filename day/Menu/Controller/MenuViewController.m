@@ -69,6 +69,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     NSLog(@"\n**** viewWillAppear: %@ ****\n",self.class);
+    [_MenuView.coinAmountLabel setText: [@(FirebaseHelper.coins) stringValue]];
 
 }
 
@@ -94,6 +95,7 @@
     
     
 }
+
 
 - (void) settingsButtonTapped{
     _SettingsViewController = [[SettingsViewController alloc] init];

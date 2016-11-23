@@ -70,6 +70,7 @@
     
 }
 
+
 -(void) acceptButtonTapped{
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"ACCEPTED_EULA_BIRD"];
     [[NSUserDefaults standardUserDefaults] synchronize];

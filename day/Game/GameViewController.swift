@@ -13,6 +13,7 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     var skView: SKView!
+    var pauseMenu: PauseButtonNode!
     
     override func loadView() {
         skView = SKView(frame: UIScreen.main.bounds)
@@ -58,9 +59,8 @@ class GameViewController: UIViewController {
 
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(motion == UIEventSubtype.motionShake){
-            skView.scene?.view?.isPaused = true
+            pauseMenu.buttonPressed()
         }
-        
     }
     
     func AddNewGameToFirebase(score: Int, streak: Int){
@@ -70,6 +70,7 @@ class GameViewController: UIViewController {
         if( FirebaseHelper.highscore < score){
             FirebaseHelper.highscore = score
         }
+        FirebaseHelper.coins += score
         FirebaseHelper.gamesPlayed = FirebaseHelper.gamesPlayed + 1
         FirebaseHelper.setData()
     }

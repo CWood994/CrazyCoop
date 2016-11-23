@@ -16,6 +16,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     var signingUp =  false
     var menuViewController: MenuViewController?
     var eulaViewController: EULAViewController?
+    var clickedSignIN = false
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -36,6 +37,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        clickedSignIN=false
         activityIndicatorView.startAnimating()
         activityIndicatorView.isHidden=true
 
@@ -149,10 +151,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     func launchMenu(){ //this is called from FireBaseHelper getData
-        activityIndicatorView.isHidden=true
-        menuViewController = MenuViewController.init()
-        self.navigationController?.pushViewController(menuViewController!, animated: false)
-        if(signingUp) {didTapSignUp(self)}
+        if(clickedSignIN == false){ //disable multiple screens being launched on each click
+            clickedSignIN=true
+            activityIndicatorView.isHidden=true
+            menuViewController = MenuViewController.init()
+            self.navigationController?.pushViewController(menuViewController!, animated: false)
+            if(signingUp) {didTapSignUp(self)}
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
