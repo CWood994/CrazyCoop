@@ -25,17 +25,17 @@ class GameScene: SKScene {
     private var gameOverMenu : GameOverSceneNode?
     
     // Game Attributes
-    private var strikes : Int = 0
+    var strikes : Int = 0
     var currentStreak : Int = 0
     var maxStreak : Int = 0
     var score : Int = 0
-    private var lastUpdateTime : TimeInterval = 0
+    var lastUpdateTime : TimeInterval = 0
     private var nextBirdTime : Float = 10.0
     private var selectedNode: SKSpriteNode?
     var showingMenu : Bool = false;
     
     // Collections
-    private var birdList : Array<BirdNode> = []
+    var birdList : Array<BirdNode> = []
     private var cellList : Array<SKNode> = []
 
     // MARK: Game Lifecycle
