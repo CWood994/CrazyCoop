@@ -12,12 +12,13 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    var skView: SKView!
-    var pauseMenu: PauseButtonNode!
+    //var skView: SKView!
+    //var pauseMenu: PauseButtonNode!
     
     override func loadView() {
-        skView = SKView(frame: UIScreen.main.bounds)
-        self.view = skView
+        //skView = SKView(frame: UIScreen.main.bounds)
+        //self.view = skView
+        self.view = SKView(frame: UIScreen.main.bounds)
     }
     
     override func viewDidLoad() {
@@ -59,8 +60,10 @@ class GameViewController: UIViewController {
 
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(motion == UIEventSubtype.motionShake){
-            if let sceneNode = self.skView.scene as! GameScene? {
-                sceneNode.showMenu()
+            if let skView = self.view as! SKView? {
+                if let gameScene = skView.scene as! GameScene? {
+                    gameScene.showMenu()
+                }
             }
         }
     }
@@ -78,7 +81,11 @@ class GameViewController: UIViewController {
     }
     
     func exitGame(){
-        skView.scene?.view?.isPaused = true
+        // not really necessary to pause the scene if we're just removing the view anyway, I think.
+        //skView.scene?.view?.isPaused = true
+        if let skView = self.view as! SKView? {
+            skView.isPaused = true
+        }
         self.navigationController?.popViewController(animated: true);
     }
     
