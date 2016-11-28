@@ -44,21 +44,23 @@ class GameViewController: UIViewController {
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                    view.showsPhysics = true
+                    //view.showsFPS = true
+                    //view.showsNodeCount = true
+                    //view.showsPhysics = true
                 }
             }
         }
     }
 
     override var shouldAutorotate: Bool {
-        return true
+        return false
     }
 
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if(motion == UIEventSubtype.motionShake){
-            skView.scene?.view?.isPaused = true
+            if let sceneNode = self.skView.scene as! GameScene? {
+                sceneNode.showMenu()
+            }
         }
         
     }
