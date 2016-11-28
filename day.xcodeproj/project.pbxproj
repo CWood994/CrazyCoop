@@ -22,7 +22,71 @@
 		283C4B251DC663A100A56B63 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283C4B181DC663A100A56B63 /* FirebaseHelper.swift */; };
 		288ED57C1DD00E18002A75CD /* LevelImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 288ED57B1DD00E18002A75CD /* LevelImage.png */; };
 		288ED57E1DD016E6002A75CD /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 288ED57D1DD016E6002A75CD /* sky.png */; };
+		28AAE1881DE62F8F001C5908 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86B81DC0785600FEE573 /* LoginViewController.swift */; };
+		28AAE1891DE62F8F001C5908 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86B81DC0785600FEE573 /* LoginViewController.swift */; };
+		28AAE18A1DE62FA1001C5908 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C61DC078B600FEE573 /* MenuViewController.m */; };
+		28AAE18B1DE62FA1001C5908 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C61DC078B600FEE573 /* MenuViewController.m */; };
+		28AAE18C1DE62FA9001C5908 /* EULAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0E01DCA4488006FFB5B /* EULAViewController.m */; };
+		28AAE18D1DE62FAA001C5908 /* EULAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0E01DCA4488006FFB5B /* EULAViewController.m */; };
+		28AAE18E1DE6330C001C5908 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86E01DC078EE00FEE573 /* GameViewController.swift */; };
+		28AAE18F1DE6330C001C5908 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86E01DC078EE00FEE573 /* GameViewController.swift */; };
+		28AAE1901DE63327001C5908 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8C1DD0DBA500113166 /* ButtonNode.swift */; };
+		28AAE1911DE63328001C5908 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8C1DD0DBA500113166 /* ButtonNode.swift */; };
+		28AAE1921DE6332E001C5908 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86DF1DC078EE00FEE573 /* GameScene.swift */; };
+		28AAE1931DE6332F001C5908 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C86DF1DC078EE00FEE573 /* GameScene.swift */; };
+		28AAE1941DE6333A001C5908 /* PauseSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8A1DD0D83E00113166 /* PauseSceneNode.swift */; };
+		28AAE1951DE6333A001C5908 /* PauseSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8A1DD0D83E00113166 /* PauseSceneNode.swift */; };
+		28AAE1961DE63355001C5908 /* GameOverSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7A0AF1DD1405600198964 /* GameOverSceneNode.swift */; };
+		28AAE1971DE63355001C5908 /* GameOverSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7A0AF1DD1405600198964 /* GameOverSceneNode.swift */; };
+		28AAE1981DE63367001C5908 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5482D921DCF996200F0DF32 /* GameConstants.swift */; };
+		28AAE1991DE63368001C5908 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5482D921DCF996200F0DF32 /* GameConstants.swift */; };
+		28AAE19A1DE633AF001C5908 /* BirdNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA91DC5C0DA00255E8A /* BirdNode.swift */; };
+		28AAE19B1DE633B0001C5908 /* BirdNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5491AA91DC5C0DA00255E8A /* BirdNode.swift */; };
+		28AAE19C1DE633B8001C5908 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B56C86DD1DC078EE00FEE573 /* Actions.sks */; };
+		28AAE19D1DE633B9001C5908 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B56C86DD1DC078EE00FEE573 /* Actions.sks */; };
+		28AAE19E1DE633BB001C5908 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B56C86DE1DC078EE00FEE573 /* GameScene.sks */; };
+		28AAE19F1DE633BC001C5908 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B56C86DE1DC078EE00FEE573 /* GameScene.sks */; };
+		28AAE1A01DE633C1001C5908 /* ChickenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A41DCE422C003B695F /* ChickenNode.swift */; };
+		28AAE1A11DE633C2001C5908 /* ChickenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A41DCE422C003B695F /* ChickenNode.swift */; };
+		28AAE1A21DE633C5001C5908 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */; };
+		28AAE1A31DE633C6001C5908 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E9A61DCE61EF003B695F /* CollectionExtensions.swift */; };
+		28AAE1A41DE633C9001C5908 /* Chicken.sks in Resources */ = {isa = PBXBuildFile; fileRef = B558AA881DCEC54E00D534BA /* Chicken.sks */; };
+		28AAE1A51DE633C9001C5908 /* Chicken.sks in Resources */ = {isa = PBXBuildFile; fileRef = B558AA881DCEC54E00D534BA /* Chicken.sks */; };
+		28AAE1A61DE633CD001C5908 /* EggNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5482D901DCF965200F0DF32 /* EggNode.swift */; };
+		28AAE1A71DE633CD001C5908 /* EggNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5482D901DCF965200F0DF32 /* EggNode.swift */; };
+		28AAE1A81DE633D3001C5908 /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B534EF991DCFC3A200223171 /* PauseScene.sks */; };
+		28AAE1A91DE633D3001C5908 /* PauseScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B534EF991DCFC3A200223171 /* PauseScene.sks */; };
+		28AAE1AA1DE633D6001C5908 /* EggIndicatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534EF9B1DD0390B00223171 /* EggIndicatorNode.swift */; };
+		28AAE1AB1DE633D7001C5908 /* EggIndicatorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B534EF9B1DD0390B00223171 /* EggIndicatorNode.swift */; };
+		28AAE1AC1DE633DD001C5908 /* EggIndicator.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51E8F8E1DD100EC00113166 /* EggIndicator.sks */; };
+		28AAE1AD1DE633DD001C5908 /* EggIndicator.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51E8F8E1DD100EC00113166 /* EggIndicator.sks */; };
+		28AAE1AE1DE633E0001C5908 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5F7A0AD1DD13E4B00198964 /* GameOverScene.sks */; };
+		28AAE1AF1DE633E1001C5908 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5F7A0AD1DD13E4B00198964 /* GameOverScene.sks */; };
+		28AAE1B01DE6346C001C5908 /* EULAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0DD1DCA43FD006FFB5B /* EULAView.m */; };
+		28AAE1B11DE63478001C5908 /* EULAView.h in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0DC1DCA43FD006FFB5B /* EULAView.h */; };
+		28AAE1B21DE63486001C5908 /* EULAViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0DF1DCA4488006FFB5B /* EULAViewController.h */; };
+		28AAE1B31DE63486001C5908 /* AboutViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0D91DCA3EA6006FFB5B /* AboutViewController.h */; };
+		28AAE1B41DE63486001C5908 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0DA1DCA3EA6006FFB5B /* AboutViewController.m */; };
+		28AAE1B51DE63486001C5908 /* CreditsViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C31DC078B600FEE573 /* CreditsViewController.h */; };
+		28AAE1B61DE63486001C5908 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C41DC078B600FEE573 /* CreditsViewController.m */; };
+		28AAE1B71DE63486001C5908 /* MenuViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C51DC078B600FEE573 /* MenuViewController.h */; };
+		28AAE1B81DE63486001C5908 /* ProfileViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C71DC078B600FEE573 /* ProfileViewController.h */; };
+		28AAE1B91DE63486001C5908 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C81DC078B600FEE573 /* ProfileViewController.m */; };
+		28AAE1BA1DE63486001C5908 /* SettingsViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86C91DC078B600FEE573 /* SettingsViewController.h */; };
+		28AAE1BB1DE63486001C5908 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86CA1DC078B600FEE573 /* SettingsViewController.m */; };
+		28AAE1BC1DE6348F001C5908 /* AboutView.h in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0D61DCA3E3F006FFB5B /* AboutView.h */; };
+		28AAE1BD1DE6348F001C5908 /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2802F0D71DCA3E3F006FFB5B /* AboutView.m */; };
+		28AAE1BE1DE6348F001C5908 /* CreditsView.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D01DC078CE00FEE573 /* CreditsView.h */; };
+		28AAE1BF1DE6348F001C5908 /* CreditsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D11DC078CE00FEE573 /* CreditsView.m */; };
+		28AAE1C01DE6348F001C5908 /* MenuView.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D21DC078CE00FEE573 /* MenuView.h */; };
+		28AAE1C11DE6348F001C5908 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D31DC078CE00FEE573 /* MenuView.m */; };
+		28AAE1C21DE6348F001C5908 /* ProfileView.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D41DC078CE00FEE573 /* ProfileView.h */; };
+		28AAE1C31DE6348F001C5908 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D51DC078CE00FEE573 /* ProfileView.m */; };
+		28AAE1C41DE6348F001C5908 /* SettingsView.h in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D61DC078CE00FEE573 /* SettingsView.h */; };
+		28AAE1C51DE6348F001C5908 /* SettingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B56C86D71DC078CE00FEE573 /* SettingsView.m */; };
 		35380C9A4D64F1FC9A22FE8A /* Pods_day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF57EF509F1304A2E6E64CB /* Pods_day.framework */; };
+		7386A07BA525A2B320D93378 /* Pods_dayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14EF417F21CF523DB29DFCE7 /* Pods_dayUITests.framework */; };
+		9F773386430B2E0D33DA1D71 /* Pods_dayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98BFFCAABBF0491CAF68FAF /* Pods_dayTests.framework */; };
 		B51E8F8B1DD0D83E00113166 /* PauseSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8A1DD0D83E00113166 /* PauseSceneNode.swift */; };
 		B51E8F8D1DD0DBA500113166 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E8F8C1DD0DBA500113166 /* ButtonNode.swift */; };
 		B51E8F8F1DD100EC00113166 /* EggIndicator.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51E8F8E1DD100EC00113166 /* EggIndicator.sks */; };
@@ -89,6 +153,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E88A00F1B88460A02B277B4 /* Pods-dayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dayUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dayUITests/Pods-dayUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		14EF417F21CF523DB29DFCE7 /* Pods_dayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1714BF20C4E9E825F660B5F2 /* Pods-dayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dayTests/Pods-dayTests.release.xcconfig"; sourceTree = "<group>"; };
 		2802F0D61DCA3E3F006FFB5B /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutView.h; path = Menu/View/AboutView.h; sourceTree = "<group>"; };
 		2802F0D71DCA3E3F006FFB5B /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutView.m; path = Menu/View/AboutView.m; sourceTree = "<group>"; };
 		2802F0D91DCA3EA6006FFB5B /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Menu/Controller/AboutViewController.h; sourceTree = "<group>"; };
@@ -168,6 +235,9 @@
 		B5F7A0AD1DD13E4B00198964 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		B5F7A0AF1DD1405600198964 /* GameOverSceneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverSceneNode.swift; sourceTree = "<group>"; };
 		CCD8F2B24AC717A315DFA63C /* Pods-day.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day.debug.xcconfig"; path = "Pods/Target Support Files/Pods-day/Pods-day.debug.xcconfig"; sourceTree = "<group>"; };
+		D9CCF45B2BA4B7C5A33D0BBD /* Pods-dayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dayUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dayUITests/Pods-dayUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E41F04B57DB63E0F8E5EF7E0 /* Pods-dayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dayTests/Pods-dayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F98BFFCAABBF0491CAF68FAF /* Pods_dayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F773386430B2E0D33DA1D71 /* Pods_dayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7386A07BA525A2B320D93378 /* Pods_dayUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +273,10 @@
 			children = (
 				CCD8F2B24AC717A315DFA63C /* Pods-day.debug.xcconfig */,
 				3C83BFA68A880347DD693E4B /* Pods-day.release.xcconfig */,
+				E41F04B57DB63E0F8E5EF7E0 /* Pods-dayTests.debug.xcconfig */,
+				1714BF20C4E9E825F660B5F2 /* Pods-dayTests.release.xcconfig */,
+				0E88A00F1B88460A02B277B4 /* Pods-dayUITests.debug.xcconfig */,
+				D9CCF45B2BA4B7C5A33D0BBD /* Pods-dayUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -209,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				9AF57EF509F1304A2E6E64CB /* Pods_day.framework */,
+				F98BFFCAABBF0491CAF68FAF /* Pods_dayTests.framework */,
+				14EF417F21CF523DB29DFCE7 /* Pods_dayUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -420,9 +498,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B541477D1DC0200A00053EB0 /* Build configuration list for PBXNativeTarget "dayTests" */;
 			buildPhases = (
+				895BDAE711EE85EF117F5F7F /* [CP] Check Pods Manifest.lock */,
 				B54147621DC0200A00053EB0 /* Sources */,
 				B54147631DC0200A00053EB0 /* Frameworks */,
 				B54147641DC0200A00053EB0 /* Resources */,
+				2B18853EE08CFAA1AEAB4C0E /* [CP] Embed Pods Frameworks */,
+				862A1FE552A48CF9C31AB84F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,9 +519,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54147801DC0200A00053EB0 /* Build configuration list for PBXNativeTarget "dayUITests" */;
 			buildPhases = (
+				3E412EDA03E970BD4C1A91F2 /* [CP] Check Pods Manifest.lock */,
 				B541476D1DC0200A00053EB0 /* Sources */,
 				B541476E1DC0200A00053EB0 /* Frameworks */,
 				B541476F1DC0200A00053EB0 /* Resources */,
+				3E542A905E1F651F7BF2CAA8 /* [CP] Embed Pods Frameworks */,
+				27B9592071666A5F8FB4CA9E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -539,7 +623,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AAE1AE1DE633E0001C5908 /* GameOverScene.sks in Resources */,
 				283C4B131DC6632300A56B63 /* GoogleService-Info.plist in Resources */,
+				28AAE19E1DE633BB001C5908 /* GameScene.sks in Resources */,
+				28AAE19C1DE633B8001C5908 /* Actions.sks in Resources */,
+				28AAE1AC1DE633DD001C5908 /* EggIndicator.sks in Resources */,
+				28AAE1A81DE633D3001C5908 /* PauseScene.sks in Resources */,
+				28AAE1A41DE633C9001C5908 /* Chicken.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,13 +637,79 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AAE1AF1DE633E1001C5908 /* GameOverScene.sks in Resources */,
 				283C4B141DC6632300A56B63 /* GoogleService-Info.plist in Resources */,
+				28AAE19F1DE633BC001C5908 /* GameScene.sks in Resources */,
+				28AAE19D1DE633B9001C5908 /* Actions.sks in Resources */,
+				28AAE1AD1DE633DD001C5908 /* EggIndicator.sks in Resources */,
+				28AAE1A91DE633D3001C5908 /* PauseScene.sks in Resources */,
+				28AAE1A51DE633C9001C5908 /* Chicken.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		27B9592071666A5F8FB4CA9E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dayUITests/Pods-dayUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B18853EE08CFAA1AEAB4C0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dayTests/Pods-dayTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E412EDA03E970BD4C1A91F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3E542A905E1F651F7BF2CAA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dayUITests/Pods-dayUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		502B99DC47F4A1E34AE6F3B3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -567,6 +723,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-day/Pods-day-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		862A1FE552A48CF9C31AB84F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dayTests/Pods-dayTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		895BDAE711EE85EF117F5F7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8C8F2B836104EED32B3A6776 /* [CP] Copy Pods Resources */ = {
@@ -641,9 +827,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AAE18E1DE6330C001C5908 /* GameViewController.swift in Sources */,
+				28AAE1A61DE633CD001C5908 /* EggNode.swift in Sources */,
+				28AAE1881DE62F8F001C5908 /* LoginViewController.swift in Sources */,
 				B541476B1DC0200A00053EB0 /* dayTests.swift in Sources */,
+				28AAE1921DE6332E001C5908 /* GameScene.swift in Sources */,
 				283C4B241DC663A100A56B63 /* FirebaseHelper.swift in Sources */,
+				28AAE1981DE63367001C5908 /* GameConstants.swift in Sources */,
 				283C4B1E1DC663A100A56B63 /* Constants.swift in Sources */,
+				28AAE1A01DE633C1001C5908 /* ChickenNode.swift in Sources */,
+				28AAE1901DE63327001C5908 /* ButtonNode.swift in Sources */,
+				28AAE19A1DE633AF001C5908 /* BirdNode.swift in Sources */,
+				28AAE1A21DE633C5001C5908 /* CollectionExtensions.swift in Sources */,
+				28AAE18A1DE62FA1001C5908 /* MenuViewController.m in Sources */,
+				28AAE18C1DE62FA9001C5908 /* EULAViewController.m in Sources */,
+				28AAE1961DE63355001C5908 /* GameOverSceneNode.swift in Sources */,
+				28AAE1AA1DE633D6001C5908 /* EggIndicatorNode.swift in Sources */,
+				28AAE1941DE6333A001C5908 /* PauseSceneNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,9 +851,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AAE1BC1DE6348F001C5908 /* AboutView.h in Sources */,
+				28AAE1BD1DE6348F001C5908 /* AboutView.m in Sources */,
+				28AAE1BE1DE6348F001C5908 /* CreditsView.h in Sources */,
+				28AAE1BF1DE6348F001C5908 /* CreditsView.m in Sources */,
+				28AAE1C01DE6348F001C5908 /* MenuView.h in Sources */,
+				28AAE1C11DE6348F001C5908 /* MenuView.m in Sources */,
+				28AAE1C21DE6348F001C5908 /* ProfileView.h in Sources */,
+				28AAE1C31DE6348F001C5908 /* ProfileView.m in Sources */,
+				28AAE1C41DE6348F001C5908 /* SettingsView.h in Sources */,
+				28AAE1C51DE6348F001C5908 /* SettingsView.m in Sources */,
+				28AAE1B21DE63486001C5908 /* EULAViewController.h in Sources */,
+				28AAE1B31DE63486001C5908 /* AboutViewController.h in Sources */,
+				28AAE1B41DE63486001C5908 /* AboutViewController.m in Sources */,
+				28AAE1B51DE63486001C5908 /* CreditsViewController.h in Sources */,
+				28AAE1B61DE63486001C5908 /* CreditsViewController.m in Sources */,
+				28AAE1B71DE63486001C5908 /* MenuViewController.h in Sources */,
+				28AAE1B81DE63486001C5908 /* ProfileViewController.h in Sources */,
+				28AAE1B91DE63486001C5908 /* ProfileViewController.m in Sources */,
+				28AAE1BA1DE63486001C5908 /* SettingsViewController.h in Sources */,
+				28AAE1BB1DE63486001C5908 /* SettingsViewController.m in Sources */,
+				28AAE1B11DE63478001C5908 /* EULAView.h in Sources */,
+				28AAE1B01DE6346C001C5908 /* EULAView.m in Sources */,
+				28AAE18F1DE6330C001C5908 /* GameViewController.swift in Sources */,
+				28AAE1A71DE633CD001C5908 /* EggNode.swift in Sources */,
+				28AAE1891DE62F8F001C5908 /* LoginViewController.swift in Sources */,
 				B54147761DC0200A00053EB0 /* dayUITests.swift in Sources */,
+				28AAE1931DE6332F001C5908 /* GameScene.swift in Sources */,
 				283C4B251DC663A100A56B63 /* FirebaseHelper.swift in Sources */,
+				28AAE1991DE63368001C5908 /* GameConstants.swift in Sources */,
 				283C4B1F1DC663A100A56B63 /* Constants.swift in Sources */,
+				28AAE1A11DE633C2001C5908 /* ChickenNode.swift in Sources */,
+				28AAE1911DE63328001C5908 /* ButtonNode.swift in Sources */,
+				28AAE19B1DE633B0001C5908 /* BirdNode.swift in Sources */,
+				28AAE1A31DE633C6001C5908 /* CollectionExtensions.swift in Sources */,
+				28AAE18B1DE62FA1001C5908 /* MenuViewController.m in Sources */,
+				28AAE18D1DE62FAA001C5908 /* EULAViewController.m in Sources */,
+				28AAE1971DE63355001C5908 /* GameOverSceneNode.swift in Sources */,
+				28AAE1AB1DE633D7001C5908 /* EggIndicatorNode.swift in Sources */,
+				28AAE1951DE6333A001C5908 /* PauseSceneNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +974,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -781,6 +1018,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -794,6 +1032,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6KMG279R88;
 				INFOPLIST_FILE = day/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -814,6 +1053,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6KMG279R88;
 				INFOPLIST_FILE = day/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -828,6 +1068,7 @@
 		};
 		B541477E1DC0200A00053EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E41F04B57DB63E0F8E5EF7E0 /* Pods-dayTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -836,6 +1077,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msw.dayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "day/day-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "day-Swift.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/day.app/day";
 			};
@@ -843,6 +1086,7 @@
 		};
 		B541477F1DC0200A00053EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1714BF20C4E9E825F660B5F2 /* Pods-dayTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -851,6 +1095,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msw.dayTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "day/day-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "day-Swift.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/day.app/day";
 			};
@@ -858,6 +1104,7 @@
 		};
 		B54147811DC0200A00053EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E88A00F1B88460A02B277B4 /* Pods-dayUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6KMG279R88;
@@ -865,6 +1112,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msw.dayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "day/day-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "day-Swift.h";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = day;
 			};
@@ -872,6 +1121,7 @@
 		};
 		B54147821DC0200A00053EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9CCF45B2BA4B7C5A33D0BBD /* Pods-dayUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6KMG279R88;
@@ -879,6 +1129,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msw.dayUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "day/day-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "day-Swift.h";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = day;
 			};

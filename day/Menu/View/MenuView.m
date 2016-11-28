@@ -16,7 +16,6 @@
     UIButton *_coinButton;
     UIView *_userDataView;
     UILabel *_userNameLabel;
-    UILabel *_coinAmountLabel;
 }
 @end
 
@@ -29,6 +28,7 @@
 @synthesize playButton=_playButton;
 @synthesize settingsButton=_settingsButton;
 @synthesize profileButton=_profileButton;
+@synthesize coinAmountLabel=_coinAmountLabel;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

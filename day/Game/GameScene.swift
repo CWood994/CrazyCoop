@@ -25,17 +25,17 @@ class GameScene: SKScene {
     private var gameOverMenu : GameOverSceneNode?
     
     // Game Attributes
-    private var strikes : Int = 0
+    var strikes : Int = 0
     var currentStreak : Int = 0
     var maxStreak : Int = 0
     var score : Int = 0
-    private var lastUpdateTime : TimeInterval = 0
+    var lastUpdateTime : TimeInterval = 0
     private var nextBirdTime : Float = 10.0
     private var selectedNode: SKSpriteNode?
     var showingMenu : Bool = false;
     
     // Collections
-    private var birdList : Array<BirdNode> = []
+    var birdList : Array<BirdNode> = []
     private var cellList : Array<SKNode> = []
 
     // MARK: Game Lifecycle
@@ -47,6 +47,7 @@ class GameScene: SKScene {
         self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
         self.pauseButton = self.childNode(withName: "//pause_button") as? PauseButtonNode
+        viewController.pauseMenu = self.childNode(withName: "//pause_button") as? PauseButtonNode
         self.pauseButton?.gameScene = self
         self.pauseMenu = PauseSceneNode(gameScene: self)
         self.gameOverMenu = GameOverSceneNode(gameScene: self)
@@ -54,6 +55,7 @@ class GameScene: SKScene {
         self.updateLabels()
         self.initializeGame()
     }
+
     
     func initializeGame() {
         self.birdList = []

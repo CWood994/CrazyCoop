@@ -12,5 +12,7 @@
 @property (strong, nonatomic) UIButton *playButton;
 @property (strong, nonatomic) UIButton *settingsButton;
 @property (strong, nonatomic) UIButton *profileButton;
+@property (strong, nonatomic) UILabel *coinAmountLabel;
+
 
 @end
