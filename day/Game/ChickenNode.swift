@@ -10,9 +10,9 @@ import SpriteKit
 
 class ChickenNode : BirdNode {
     init() {
-        let A: UInt32 = 8
-        let B: UInt32 = 12
-        let time = arc4random_uniform(B - A + 1) + A
+        let lowerRange: UInt32 = 7
+        let upperRange: UInt32 = 14
+        let time = arc4random_uniform(upperRange - lowerRange + 1) + lowerRange
         super.init(templateFile: "Chicken", timeBetweenEggs: Float(time), eggTexture: SKTexture(imageNamed: "white_egg"), eggValue: 1)
     }
     

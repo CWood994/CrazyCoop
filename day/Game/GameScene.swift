@@ -31,7 +31,7 @@ class GameScene: SKScene {
     var score : Int = 0
     var lastUpdateTime : TimeInterval = 0
     private var nextBirdTime : Float = 10.0
-    private var selectedNode: SKSpriteNode?
+    private var selectedNode: BirdNode?
     var showingMenu : Bool = false;
     
     // Collections
@@ -133,12 +133,15 @@ class GameScene: SKScene {
     func selectNodeForTouch(touchLocation: CGPoint) {
         let touchedNode = self.atPoint(touchLocation)
         if touchedNode is BirdNode {
-            selectedNode?.removeAllActions()
-            selectedNode = touchedNode as? SKSpriteNode
+            let birdNode = touchedNode as! BirdNode
+            
+            birdNode.removeAllActions()
+            selectedNode = birdNode
             let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
                     SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
                     SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
-            selectedNode?.run(SKAction.repeatForever(sequence))
+            birdNode.run(SKAction.repeatForever(sequence))
+            birdNode.startFlutterAction()
         }
     }
     
@@ -168,7 +171,7 @@ class GameScene: SKScene {
             selectedNode?.position = CGPoint.zero
             selectedNode?.removeAllActions()
             selectedNode?.run(SKAction.rotate(toAngle: 0.0, duration: 0.1))
-
+            selectedNode?.startIdleAction()
             selectedNode?.removeFromParent()
             
             newParent.addChild(selectedNode!)

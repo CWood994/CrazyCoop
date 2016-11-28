@@ -18,6 +18,9 @@ class BirdNode : SKSpriteNode {
     var timeUntilNextEgg: Float
     private var eggValue: Int
     
+    var leftWing : SKNode
+    var rightWing : SKNode
+    
     init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture, eggValue: Int) {
         
         let importedScene = SKScene(fileNamed: templateFile)
@@ -27,6 +30,9 @@ class BirdNode : SKSpriteNode {
         self.timeBetweenEggs = timeBetweenEggs
         self.timeUntilNextEgg = timeBetweenEggs
         self.eggValue = eggValue
+        self.leftWing = bodyNode.childNode(withName: "//left_wing")!
+        self.rightWing = bodyNode.childNode(withName: "//right_wing")!
+        
         super.init(texture: nil, color: bodyNode.color, size: bodyNode.size)
         self.zPosition = GameConstants.LayerConstants.CharacterLayer
         self.anchorPoint = bodyNode.anchorPoint
@@ -34,6 +40,8 @@ class BirdNode : SKSpriteNode {
         bodyNode.zPosition = -1
         bodyNode.removeFromParent()
         self.addChild(bodyNode)
+        
+        self.startIdleAction()
         
         self.addPhysics()
     }
@@ -50,6 +58,27 @@ class BirdNode : SKSpriteNode {
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer | GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.collisionBitMask = 0
         self.physicsBody = physicsBody
+    }
+    
+    func startFlutterAction() {
+        self.leftWing.removeAllActions()
+        self.rightWing.removeAllActions()
+        
+        self.leftWing.zRotation = -1.309
+        self.rightWing.zRotation = 1.309
+        self.leftWing.run(SKAction(named: "fly_left")!)
+        self.rightWing.run(SKAction(named: "fly_right")!)
+    }
+    
+    func startIdleAction() {
+        self.leftWing.removeAllActions()
+        self.rightWing.removeAllActions()
+        
+        self.leftWing.zRotation = 0.0
+        self.rightWing.zRotation = 0.0
+        
+        self.leftWing.run(SKAction(named:"flap_left")!)
+        self.rightWing.run(SKAction(named:"flap_right")!)
     }
     
     func updateBird(deltaTime: Float) {
