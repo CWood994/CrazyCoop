@@ -47,7 +47,6 @@ class GameScene: SKScene {
         self.scoreLabel = self.childNode(withName: "//score_label") as? SKLabelNode
         self.nextBirdLabel = self.childNode(withName: "//next_bird_label") as? SKLabelNode
         self.pauseButton = self.childNode(withName: "//pause_button") as? PauseButtonNode
-        //viewController.pauseMenu = self.childNode(withName: "//pause_button") as? PauseButtonNode
         self.pauseButton?.gameScene = self
         self.pauseMenu = PauseSceneNode(gameScene: self)
         self.gameOverMenu = GameOverSceneNode(gameScene: self)
@@ -91,6 +90,18 @@ class GameScene: SKScene {
         debugPrint("showing menu...")
         self.showingMenu = true
         self.physicsWorld.speed = 0.0
+        
+        // start transitions
+        let menuSprite = self.pauseMenu?.childNode(withName: "//menu_sprite")
+        let darkSprite = self.pauseMenu?.childNode(withName: "//dark_sprite")
+        
+        menuSprite?.position = CGPoint(x: 0, y: self.frame.height/2 + (menuSprite?.frame.height)!/2)
+        let presentMenu = SKAction.move(to: CGPoint.zero, duration: 0.5)
+        menuSprite?.run(presentMenu)
+        
+        darkSprite?.alpha = 0
+        darkSprite?.run(SKAction.fadeIn(withDuration: 0.3))
+        
         self.addChild(self.pauseMenu!)
     }
     
