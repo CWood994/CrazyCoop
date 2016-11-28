@@ -87,7 +87,6 @@ class GameScene: SKScene {
     }
     
     func showMenu() {
-        debugPrint("showing menu...")
         self.showingMenu = true
         self.physicsWorld.speed = 0.0
         
@@ -96,11 +95,11 @@ class GameScene: SKScene {
         let darkSprite = self.pauseMenu?.childNode(withName: "//dark_sprite")
         
         menuSprite?.position = CGPoint(x: 0, y: self.frame.height/2 + (menuSprite?.frame.height)!/2)
-        let presentMenu = SKAction.move(to: CGPoint.zero, duration: 0.5)
+        let presentMenu = SKAction.move(to: CGPoint.zero, duration: 0.2)
         menuSprite?.run(presentMenu)
         
         darkSprite?.alpha = 0
-        darkSprite?.run(SKAction.fadeIn(withDuration: 0.3))
+        darkSprite?.run(SKAction.fadeIn(withDuration: 0.1))
         
         self.addChild(self.pauseMenu!)
     }
