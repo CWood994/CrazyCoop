@@ -25,6 +25,8 @@ class BirdNode : SKSpriteNode {
     private var featherParticleEmitter : SKEmitterNode?
     private var particleSpawnRate: CGFloat?
     
+    private var idling : Bool = true
+    
     init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture, featherTexture: SKTexture, eggValue: Int) {
         
         let importedScene = SKScene(fileNamed: templateFile)
@@ -75,8 +77,8 @@ class BirdNode : SKSpriteNode {
         self.addChild(featherParticleEmitter!)
     }
     
-    func startFlutterAction() {
-        if self.childNode(withName: "feather_emitter") == nil {
+    func startFlutterAction(withParticles : Bool) {
+        if self.childNode(withName: "feather_emitter") == nil && withParticles {
             self.configureParticles()
         }
 
@@ -89,7 +91,11 @@ class BirdNode : SKSpriteNode {
         self.rightWing.run(SKAction(named: "fly_right")!)
         
         // add feather particles
-        self.featherParticleEmitter?.particleBirthRate = self.particleSpawnRate!
+        if (withParticles) {
+            self.featherParticleEmitter?.particleBirthRate = self.particleSpawnRate!
+        }
+        
+        self.idling = false
     }
     
     func startIdleAction() {
@@ -104,20 +110,25 @@ class BirdNode : SKSpriteNode {
         
         // stop spawning feathers
         self.featherParticleEmitter?.particleBirthRate = 0
+        
+        self.idling = true
     }
     
     func updateBird(deltaTime: Float) {
-        self.timeUntilNextEgg = self.timeUntilNextEgg - deltaTime
-        if (self.timeUntilNextEgg <= 0.0) {
-            self.layEgg()
-        } else if (self.timeUntilNextEgg <= 3.0 && (self.childNode(withName: BirdNode.indicatorNodeName) == nil)) {
-            // add an indicator that shows that an egg must be laid soon
-            let indicatorNode = EggIndicatorNode(bird: self)
-            indicatorNode.name = BirdNode.indicatorNodeName
-            indicatorNode.position = CGPoint(x: 0, y: self.frame.size.height * 0.9)
-            self.addChild(indicatorNode)
+        if (idling) {
+            self.timeUntilNextEgg = self.timeUntilNextEgg - deltaTime
+            if (self.timeUntilNextEgg <= 0.0) {
+                self.layEgg()
+            } else if (self.timeUntilNextEgg <= 3.0 && (self.childNode(withName: BirdNode.indicatorNodeName) == nil)) {
+                // add an indicator that shows that an egg must be laid soon
+                let indicatorNode = EggIndicatorNode(bird: self)
+                indicatorNode.name = BirdNode.indicatorNodeName
+                indicatorNode.position = CGPoint(x: 0, y: self.frame.size.height * 0.9)
+                self.addChild(indicatorNode)
+            }
         }
     }
+        
     
     func layEgg() {
         // add egg to scene

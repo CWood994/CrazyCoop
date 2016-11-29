@@ -17,6 +17,7 @@ struct GameConstants {
     struct LayerConstants {
         static let BackgroundLayer: CGFloat = 0;
         static let CharacterLayer: CGFloat = 5;
+        static let SpecialCharacterLayer : CGFloat = 7;
         static let UILayer: CGFloat = 10;
     }
 }

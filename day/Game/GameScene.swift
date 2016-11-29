@@ -137,11 +137,12 @@ class GameScene: SKScene {
             
             birdNode.removeAllActions()
             selectedNode = birdNode
+            selectedNode?.zPosition = GameConstants.LayerConstants.SpecialCharacterLayer
             let sequence = SKAction.sequence([SKAction.rotate(byAngle: degToRad(degree: 0.0), duration: 0.1),
                     SKAction.rotate(byAngle: degToRad(degree: -4.0), duration: 0.1),
                     SKAction.rotate(byAngle: degToRad(degree: 4.0), duration: 0.1)])
             birdNode.run(SKAction.repeatForever(sequence))
-            birdNode.startFlutterAction()
+            birdNode.startFlutterAction(withParticles: true)
         }
     }
     
@@ -175,6 +176,7 @@ class GameScene: SKScene {
             selectedNode?.removeFromParent()
             
             newParent.addChild(selectedNode!)
+            selectedNode?.zPosition = GameConstants.LayerConstants.CharacterLayer
             
             if(switchBird != nil){
                 switchBird?.removeFromParent()
@@ -183,8 +185,8 @@ class GameScene: SKScene {
             
             selectedNode = nil
         }
-        
     }
+    
     func getNearestCell(position: CGPoint) -> SKNode{
         var closest: SKNode = cellList.first!
         var minDistance = Float.infinity
@@ -259,11 +261,12 @@ class GameScene: SKScene {
                 }
             }
         } else {
-            // replace the oldest bird
-            let cell = birdList[0].parent
-            // TODO: maybe make it fly away
-            birdList[0].removeFromParent()
-            birdList.remove(at: 0)
+            // find the oldest bird and make it fly away
+            let oldBird = birdList[0]
+            let cell = oldBird.parent
+            self.removeBirdFromGame(birdToRemove: oldBird)
+            
+            // add a new bird to its cell
             cell?.addChild(bird)
         }
         
@@ -283,7 +286,16 @@ class GameScene: SKScene {
         if (selectedNode?.parent == birdToRemove.parent) {
             selectedNode = nil
         }
+        
+        let convertedLocation = self.convert(birdToRemove.position, from: birdToRemove.parent!)
         birdToRemove.removeFromParent()
+        birdToRemove.position = convertedLocation
+        self.addChild(birdToRemove)
+        //birdToRemove.run(SKAction(named: "move_off_left"), com)
+        birdToRemove.startFlutterAction(withParticles: false)
+        birdToRemove.run(SKAction(named: "move_off_left")!, completion: {
+            
+        })
     }
     
     // Adds a strike, and ends the game if necessary

@@ -83,9 +83,9 @@ class GameViewController: UIViewController {
     func exitGame(){
         // not really necessary to pause the scene if we're just removing the view anyway, I think.
         //skView.scene?.view?.isPaused = true
-        if let skView = self.view as! SKView? {
-            skView.isPaused = true
-        }
+//        if let skView = self.view as! SKView? {
+//            skView.isPaused = true
+//        }
         self.navigationController?.popViewController(animated: true);
     }
     
