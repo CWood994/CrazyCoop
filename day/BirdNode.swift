@@ -14,6 +14,7 @@ class BirdNode : SKSpriteNode {
     
     
     var eggTexture : SKTexture
+    var featherTexture : SKTexture
     var timeBetweenEggs: Float
     var timeUntilNextEgg: Float
     private var eggValue: Int
@@ -21,12 +22,16 @@ class BirdNode : SKSpriteNode {
     var leftWing : SKNode
     var rightWing : SKNode
     
-    init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture, eggValue: Int) {
+    private var featherParticleEmitter : SKEmitterNode?
+    private var particleSpawnRate: CGFloat?
+    
+    init(templateFile: String, timeBetweenEggs: Float, eggTexture: SKTexture, featherTexture: SKTexture, eggValue: Int) {
         
         let importedScene = SKScene(fileNamed: templateFile)
         let bodyNode: SKSpriteNode = importedScene!.childNode(withName: "//body") as! SKSpriteNode
 
         self.eggTexture = eggTexture
+        self.featherTexture = featherTexture
         self.timeBetweenEggs = timeBetweenEggs
         self.timeUntilNextEgg = timeBetweenEggs
         self.eggValue = eggValue
@@ -41,16 +46,16 @@ class BirdNode : SKSpriteNode {
         bodyNode.removeFromParent()
         self.addChild(bodyNode)
         
-        self.startIdleAction()
+        self.configurePhysics()
         
-        self.addPhysics()
+        self.startIdleAction()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addPhysics() {
+    func configurePhysics() {
         let physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -self.frame.width/2, y: 0, width: self.frame.size.width, height: self.frame.size.height))
         physicsBody.isDynamic = true
         physicsBody.fieldBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer
@@ -60,14 +65,31 @@ class BirdNode : SKSpriteNode {
         self.physicsBody = physicsBody
     }
     
+    func configureParticles() {
+        self.featherParticleEmitter = SKEmitterNode(fileNamed: "feathers.sks")
+        self.featherParticleEmitter?.particleTexture = self.featherTexture
+        self.featherParticleEmitter?.name = "feather_emitter"
+        self.featherParticleEmitter?.targetNode = self.scene
+        self.particleSpawnRate = (featherParticleEmitter?.particleBirthRate)!
+        self.featherParticleEmitter?.particleBirthRate = 0;
+        self.addChild(featherParticleEmitter!)
+    }
+    
     func startFlutterAction() {
+        if self.childNode(withName: "feather_emitter") == nil {
+            self.configureParticles()
+        }
+
         self.leftWing.removeAllActions()
         self.rightWing.removeAllActions()
-        
+
         self.leftWing.zRotation = -1.309
         self.rightWing.zRotation = 1.309
         self.leftWing.run(SKAction(named: "fly_left")!)
         self.rightWing.run(SKAction(named: "fly_right")!)
+        
+        // add feather particles
+        self.featherParticleEmitter?.particleBirthRate = self.particleSpawnRate!
     }
     
     func startIdleAction() {
@@ -79,6 +101,9 @@ class BirdNode : SKSpriteNode {
         
         self.leftWing.run(SKAction(named:"flap_left")!)
         self.rightWing.run(SKAction(named:"flap_right")!)
+        
+        // stop spawning feathers
+        self.featherParticleEmitter?.particleBirthRate = 0
     }
     
     func updateBird(deltaTime: Float) {

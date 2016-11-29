@@ -69,10 +69,10 @@ class GameViewController: UIViewController {
     }
     
     func AddNewGameToFirebase(score: Int, streak: Int){
-        if( FirebaseHelper.streak < streak){
+        if( FirebaseHelper.streak < streak) {
             FirebaseHelper.streak = streak
         }
-        if( FirebaseHelper.highscore < score){
+        if( FirebaseHelper.highscore < score) {
             FirebaseHelper.highscore = score
         }
         FirebaseHelper.coins += score

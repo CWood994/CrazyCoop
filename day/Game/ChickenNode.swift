@@ -13,7 +13,7 @@ class ChickenNode : BirdNode {
         let lowerRange: UInt32 = 7
         let upperRange: UInt32 = 14
         let time = arc4random_uniform(upperRange - lowerRange + 1) + lowerRange
-        super.init(templateFile: "Chicken", timeBetweenEggs: Float(time), eggTexture: SKTexture(imageNamed: "white_egg"), eggValue: 1)
+        super.init(templateFile: "Chicken", timeBetweenEggs: Float(time), eggTexture: SKTexture(imageNamed: "white_egg"), featherTexture: SKTexture(imageNamed: "chicken_feather"), eggValue: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {

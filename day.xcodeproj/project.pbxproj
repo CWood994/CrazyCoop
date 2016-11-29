@@ -131,6 +131,8 @@
 		B56C87091DC07E7E00FEE573 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B56C86FC1DC07E7E00FEE573 /* spark.png */; };
 		B56C870A1DC07E7E00FEE573 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B56C86FD1DC07E7E00FEE573 /* test.jpg */; };
 		B56C870B1DC07E7E00FEE573 /* UserButton.png in Resources */ = {isa = PBXBuildFile; fileRef = B56C86FE1DC07E7E00FEE573 /* UserButton.png */; };
+		B5C7DC271DED03D500DB4184 /* feathers.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5C7DC251DED03D500DB4184 /* feathers.sks */; };
+		B5C7DC281DED03D500DB4184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5C7DC261DED03D500DB4184 /* Assets.xcassets */; };
 		B5F7A0AE1DD13E4B00198964 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B5F7A0AD1DD13E4B00198964 /* GameOverScene.sks */; };
 		B5F7A0B01DD1405600198964 /* GameOverSceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F7A0AF1DD1405600198964 /* GameOverSceneNode.swift */; };
 /* End PBXBuildFile section */
@@ -232,6 +234,8 @@
 		B56C86FC1DC07E7E00FEE573 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = Assets/spark.png; sourceTree = "<group>"; };
 		B56C86FD1DC07E7E00FEE573 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test.jpg; path = Assets/test.jpg; sourceTree = "<group>"; };
 		B56C86FE1DC07E7E00FEE573 /* UserButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UserButton.png; path = Assets/UserButton.png; sourceTree = "<group>"; };
+		B5C7DC251DED03D500DB4184 /* feathers.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = feathers.sks; path = Game/feathers.sks; sourceTree = "<group>"; };
+		B5C7DC261DED03D500DB4184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Game/Assets.xcassets; sourceTree = "<group>"; };
 		B5F7A0AD1DD13E4B00198964 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 		B5F7A0AF1DD1405600198964 /* GameOverSceneNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverSceneNode.swift; sourceTree = "<group>"; };
 		CCD8F2B24AC717A315DFA63C /* Pods-day.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-day.debug.xcconfig"; path = "Pods/Target Support Files/Pods-day/Pods-day.debug.xcconfig"; sourceTree = "<group>"; };
@@ -435,6 +439,8 @@
 				B51E8F8E1DD100EC00113166 /* EggIndicator.sks */,
 				B5F7A0AD1DD13E4B00198964 /* GameOverScene.sks */,
 				B5F7A0AF1DD1405600198964 /* GameOverSceneNode.swift */,
+				B5C7DC251DED03D500DB4184 /* feathers.sks */,
+				B5C7DC261DED03D500DB4184 /* Assets.xcassets */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -614,7 +620,9 @@
 				B534EF9A1DCFC3A200223171 /* PauseScene.sks in Resources */,
 				B56C87011DC07E7E00FEE573 /* buttonClick.mp3 in Resources */,
 				288ED57C1DD00E18002A75CD /* LevelImage.png in Resources */,
+				B5C7DC271DED03D500DB4184 /* feathers.sks in Resources */,
 				B56C87081DC07E7E00FEE573 /* SettingsButton.png in Resources */,
+				B5C7DC281DED03D500DB4184 /* Assets.xcassets in Resources */,
 				283C4B121DC6632300A56B63 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
