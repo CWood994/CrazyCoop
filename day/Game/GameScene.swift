@@ -271,6 +271,14 @@ class GameScene: SKScene {
         }
         
         self.birdList.append(bird)
+        
+        // make the bird fly in
+        let startingPoint = self.convert(CGPoint(x: 750, y: 0), to: bird.parent!)
+        bird.position = startingPoint
+        bird.startFlutterAction(withParticles: true)
+        bird.run(SKAction(named: "move_to_parent")!, completion: {
+            bird.startIdleAction()
+        })
     }
     
     // Removes the passed in bird from the game by value, ensuring all precautions are taken
@@ -287,6 +295,8 @@ class GameScene: SKScene {
             selectedNode = nil
         }
         
+        birdToRemove.isUserInteractionEnabled = false
+        
         let convertedLocation = self.convert(birdToRemove.position, from: birdToRemove.parent!)
         birdToRemove.removeFromParent()
         birdToRemove.position = convertedLocation
@@ -294,7 +304,7 @@ class GameScene: SKScene {
         //birdToRemove.run(SKAction(named: "move_off_left"), com)
         birdToRemove.startFlutterAction(withParticles: false)
         birdToRemove.run(SKAction(named: "move_off_left")!, completion: {
-            
+            birdToRemove.removeFromParent()
         })
     }
     

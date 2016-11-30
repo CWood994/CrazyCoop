@@ -123,7 +123,7 @@ class BirdNode : SKSpriteNode {
                 // add an indicator that shows that an egg must be laid soon
                 let indicatorNode = EggIndicatorNode(bird: self)
                 indicatorNode.name = BirdNode.indicatorNodeName
-                indicatorNode.position = CGPoint(x: 0, y: self.frame.size.height * 0.9)
+                indicatorNode.position = CGPoint(x: 0, y: self.frame.size.height * 1.0)
                 self.addChild(indicatorNode)
             }
         }
