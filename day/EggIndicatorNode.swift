@@ -13,6 +13,8 @@ class EggIndicatorNode : SKSpriteNode {
     var bird: BirdNode
     var egg: SKSpriteNode
     
+    var pulsing : Bool = false
+    
     init(bird: BirdNode) {
         self.bird = bird
         self.egg = SKSpriteNode(texture: bird.eggTexture, color: UIColor.clear, size: bird.eggTexture.size())
@@ -34,5 +36,12 @@ class EggIndicatorNode : SKSpriteNode {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // bird.layEgg() will take care of removing this object from the tree
         bird.layEgg()
+    }
+    
+    func beginPulse() {
+        if (!self.pulsing) {
+            self.run(SKAction(named: "pulse")!)
+            self.pulsing = true
+        }
     }
 }

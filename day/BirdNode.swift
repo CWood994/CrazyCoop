@@ -24,6 +24,7 @@ class BirdNode : SKSpriteNode {
     
     private var featherParticleEmitter : SKEmitterNode?
     private var particleSpawnRate: CGFloat?
+    private var indicatorNode : EggIndicatorNode?
     
     private var idling : Bool = true
     
@@ -119,12 +120,14 @@ class BirdNode : SKSpriteNode {
             self.timeUntilNextEgg = self.timeUntilNextEgg - deltaTime
             if (self.timeUntilNextEgg <= 0.0) {
                 self.layEgg()
-            } else if (self.timeUntilNextEgg <= 3.0 && (self.childNode(withName: BirdNode.indicatorNodeName) == nil)) {
+            } else if (self.timeUntilNextEgg <= 5.0 && self.indicatorNode == nil) {
                 // add an indicator that shows that an egg must be laid soon
-                let indicatorNode = EggIndicatorNode(bird: self)
-                indicatorNode.name = BirdNode.indicatorNodeName
-                indicatorNode.position = CGPoint(x: 0, y: self.frame.size.height * 1.0)
-                self.addChild(indicatorNode)
+                self.indicatorNode = EggIndicatorNode(bird: self)
+                self.indicatorNode?.name = BirdNode.indicatorNodeName
+                self.indicatorNode?.position = CGPoint(x: 0, y: self.frame.size.height * 1.0)
+                self.addChild((self.indicatorNode)!)
+            } else if (self.timeUntilNextEgg <= 3.0 && self.indicatorNode != nil && !(indicatorNode?.pulsing)!) {
+                self.indicatorNode?.beginPulse()
             }
         }
     }
@@ -138,6 +141,7 @@ class BirdNode : SKSpriteNode {
         
         self.timeUntilNextEgg = self.timeBetweenEggs
         
-        self.childNode(withName: BirdNode.indicatorNodeName)?.removeFromParent()
+        self.indicatorNode?.removeFromParent()
+        self.indicatorNode = nil
     }
 }
