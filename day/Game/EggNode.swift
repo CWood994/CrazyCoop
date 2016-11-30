@@ -20,7 +20,7 @@ class EggNode : SKSpriteNode {
         let physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
         physicsBody.categoryBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer
-        physicsBody.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
+        physicsBody.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer | GameConstants.PhysicsConstants.RigidPhysicsLayer
         self.physicsBody = physicsBody
     }
     

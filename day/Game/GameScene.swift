@@ -72,6 +72,7 @@ class GameScene: SKScene {
         }
         
         self.createGoal()
+        self.createSorters()
         
         self.physicsWorld.contactDelegate = self
     }
@@ -84,6 +85,22 @@ class GameScene: SKScene {
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.collisionBitMask = 0
         goalNode?.physicsBody = physicsBody
+    }
+    
+    func createSorters() {
+        let sortLeftSprite = self.childNode(withName: "//sort_left_sprite")
+        let physicsBodyLeft = SKPhysicsBody(edgeLoopFrom: (sortLeftSprite?.frame)!)
+        physicsBodyLeft.fieldBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
+        physicsBodyLeft.categoryBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
+        physicsBodyLeft.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
+        sortLeftSprite?.physicsBody = physicsBodyLeft
+        
+        let sortRightSprite = self.childNode(withName: "//sort_right_sprite")
+        let physicsBodyRight = SKPhysicsBody(edgeLoopFrom: (sortRightSprite?.frame)!)
+        physicsBodyRight.fieldBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
+        physicsBodyRight.categoryBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
+        physicsBodyRight.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
+        sortRightSprite?.physicsBody = physicsBodyRight
     }
     
     func showMenu() {

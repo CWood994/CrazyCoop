@@ -13,6 +13,7 @@ struct GameConstants {
         static let EggPhysicsLayer : UInt32 = 0x1 << 1
         static let BirdPhysicsLayer: UInt32 = 0x1 << 2
         static let GoalPhysicsLayer: UInt32 = 0x1 << 3
+        static let RigidPhysicsLayer:UInt32 = 0x1 << 4
     }
     struct LayerConstants {
         static let BackgroundLayer: CGFloat = 0;
