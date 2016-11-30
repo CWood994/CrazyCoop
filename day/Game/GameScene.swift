@@ -78,29 +78,30 @@ class GameScene: SKScene {
     }
     
     func createGoal() {
-        let goalNode = self.childNode(withName: "//goal_sprite")
-        let physicsBody = SKPhysicsBody(edgeLoopFrom: (goalNode?.frame)!)
+        let goalNode = self.childNode(withName: "//goal_sprite") as! SKSpriteNode
+        let physicsBody = SKPhysicsBody(edgeLoopFrom: CGRect(x: -goalNode.size.width/2, y: -goalNode.size.height/2, width: goalNode.size.width, height: goalNode.size.height))
         physicsBody.fieldBitMask = GameConstants.PhysicsConstants.GoalPhysicsLayer
         physicsBody.categoryBitMask = GameConstants.PhysicsConstants.GoalPhysicsLayer
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.collisionBitMask = 0
-        goalNode?.physicsBody = physicsBody
+        goalNode.physicsBody = physicsBody
     }
     
     func createSorters() {
-        let sortLeftSprite = self.childNode(withName: "//sort_left_sprite")
-        let physicsBodyLeft = SKPhysicsBody(edgeLoopFrom: (sortLeftSprite?.frame)!)
+        let sortLeftSprite = self.childNode(withName: "//sort_left_sprite") as! SKSpriteNode
+        let physicsBodyLeft = SKPhysicsBody(edgeLoopFrom: CGRect(x: -sortLeftSprite.size.width/2, y: -sortLeftSprite.size.height/2, width: sortLeftSprite.size.width, height: sortLeftSprite.size.height))
+            //SKPhysicsBody(edgeLoopFrom: sortLeftSprite.frame)
         physicsBodyLeft.fieldBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
         physicsBodyLeft.categoryBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
         physicsBodyLeft.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
-        sortLeftSprite?.physicsBody = physicsBodyLeft
+        sortLeftSprite.physicsBody = physicsBodyLeft
         
-        let sortRightSprite = self.childNode(withName: "//sort_right_sprite")
-        let physicsBodyRight = SKPhysicsBody(edgeLoopFrom: (sortRightSprite?.frame)!)
+        let sortRightSprite = self.childNode(withName: "//sort_right_sprite") as! SKSpriteNode
+        let physicsBodyRight = SKPhysicsBody(edgeLoopFrom: CGRect(x: -sortRightSprite.size.width/2, y: -sortRightSprite.size.height/2, width: sortRightSprite.size.width, height: sortRightSprite.size.height))
         physicsBodyRight.fieldBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
         physicsBodyRight.categoryBitMask = GameConstants.PhysicsConstants.RigidPhysicsLayer
         physicsBodyRight.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
-        sortRightSprite?.physicsBody = physicsBodyRight
+        sortRightSprite.physicsBody = physicsBodyRight
     }
     
     func showMenu() {

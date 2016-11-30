@@ -18,6 +18,7 @@ class EggNode : SKSpriteNode {
         self.value = eggValue
         super.init(texture: eggTexture, color: UIColor.clear, size: eggTexture.size())
         let physicsBody = SKPhysicsBody(circleOfRadius: self.size.width / 2)
+        physicsBody.fieldBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.categoryBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer
         physicsBody.contactTestBitMask = GameConstants.PhysicsConstants.BirdPhysicsLayer
         physicsBody.collisionBitMask = GameConstants.PhysicsConstants.EggPhysicsLayer | GameConstants.PhysicsConstants.RigidPhysicsLayer
